@@ -4,7 +4,7 @@
 }
 
 header {
-    background-color: #0E4323;
+    background-color: #0e4323;
 }
 
 body {
@@ -34,7 +34,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F3A27C;
+    background-color: hsl(
+        var(--hue,19),
+        var(--saturation, 83%),
+        calc(var(--lightness-offset, 0%) + var(--lightness, 72%))
+        );
     color: black;
     fill: black;
     text-transform: uppercase;
@@ -49,4 +53,24 @@ body {
 .key > svg {
     width: 1.75em;
     height: 1.75em;
+}
+
+.key:hover, .key:focus {
+    --lightness-offset: 10%;
+}
+
+.key.wrong {
+    --lightness: 55%;
+}
+
+.key.wrong-location{
+    --hue: 49;
+    --saturation: 79%;
+    --lightness: 53%;
+}
+
+.key.correct {
+    --hue: 128;
+    --saturation: 43%;
+    --lightness: 40%;
 }
