@@ -89,7 +89,7 @@ body {
 #game-area {
     display: grid;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     flex-grow: 1;
     grid-template-columns: repeat(5, 4em);
     grid-template-rows: repeat(6, 4em);
@@ -108,7 +108,7 @@ body {
     
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 
     user-select: none;
 }

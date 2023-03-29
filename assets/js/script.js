@@ -13077,6 +13077,8 @@ const targetWords= [
 
 const gameArea = document.querySelector("[data-game-area]")
 
+startGame()
+
 /**
  * Starts the game and let user able to click or press key to enter their guess.
  */  
@@ -13098,17 +13100,17 @@ function endGame() {
  */
 function handleMouseClick(event) {
     if (event.target.matches("[data-key]")) {
-        pressKey(event.target.dataset.key)
+        pressKey(event.target.dataset.key);
         return
     }
 
     if (event.target.matches("[data-enter]")) {
-        submitGuess()
+        submitGuess();
         return
     }
 
     if (event.target.matches("[data-delete]")) {
-        deleteKey()
+        deleteKey();
         return
     }
 }
@@ -13118,27 +13120,53 @@ function handleMouseClick(event) {
  */
 function handleKeyPress(event) {
     if (event.key.match(/^[a-z]$/)) {
-        pressKey(event.key)
+        pressKey(event.key);
         return
     }
     
     if (event.key === "Enter") {
-        submitGuess()
+        submitGuess();
         return
     }
 
     if (event.key === "Backspace" || event.key === "Delete"){
-        deleteKey()
+        deleteKey();
         return
     }
 }
 
-function pressKey(key)
+/**
+ * Get the information how many active tiles are there per guess.
+ */
+function getActiveTiles(){
+    return gameArea.querySelectorAll('[data-state="active"]');
+}
 
+/**
+ * Enters the key user press/click into the game area.
+ */
+function pressKey(key){
+    const activeTiles = getActiveTiles();
+    if (activeTiles.length >= 5) {
+        return
+    }
+    const nextTile = gameArea.querySelector(":not([data-letter])");
+    nextTile.dataset.letter = key.toLowerCase();
+    nextTile.textContent = key;
+    nextTile.dataset.state = "active";
+}
+
+
+/**
+ * Submits user's guess.
+ */
 function submitGuess(){
 
 }
 
+/**
+ * Delete a letter that the user input.
+ */
 function deleteKey(){
 
 }
