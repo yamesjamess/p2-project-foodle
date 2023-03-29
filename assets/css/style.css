@@ -1,6 +1,8 @@
+/** Global **/
+
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family:  'Helvetic Neue', Arial, sans-serif;
+    font-family: "Helvetic Neue", Arial, sans-serif;
 }
 
 header {
@@ -9,15 +11,19 @@ header {
 
 body {
     background-color: #EA5F1F;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 1em;
     font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+    
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.keyboard-area {
+/** Keyboard **/
+
+#keyboard-area {
     display: grid;
     grid-template-columns: repeat(20, minmax(auto, 1.25em));
     grid-auto-rows: 3em;
@@ -31,11 +37,8 @@ body {
     border: none;
     border-radius: 0.25em;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: hsl(
-        var(--hue,19),
+        var(--hue, 19),
         var(--saturation, 83%),
         calc(var(--lightness-offset, 0%) + var(--lightness, 72%))
         );
@@ -44,6 +47,10 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     user-select: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .key.large {
@@ -60,6 +67,8 @@ body {
 }
 
 .key.wrong {
+    --hue: 19;
+    --saturation: 63%;
     --lightness: 55%;
 }
 
@@ -73,4 +82,52 @@ body {
     --hue: 128;
     --saturation: 43%;
     --lightness: 40%;
+}
+
+/** Game Area **/
+
+#game-area {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    grid-template-columns: repeat(5, 4em);
+    grid-template-rows: repeat(6, 4em);
+    gap: 0.25em;
+    margin-bottom: 1em;
+
+}
+
+.tile {
+    font-size: 2em;
+    color: black;
+    border: 0.05em solid hsl(240, 2%, 23%);
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+}
+
+.tile[data-state="active"] {
+    border-color: hsl(200, 1%, 34%);
+}
+
+.tile[data-state="wrong"] {
+    background-color: hsl(19, 63%, 55%);
+    border: none;
+}
+
+.tile[data-state="wrong-location"] {
+    background-color: hsl(49, 79%, 53%);
+    border: none;
+}
+
+.tile[data-state="correct"] {
+    background-color: hsl(128, 43%, 40%);
+    border: none;
 }
