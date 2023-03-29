@@ -1,0 +1,52 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:  'Helvetic Neue', Arial, sans-serif;
+}
+
+header {
+    background-color: #0E4323;
+}
+
+body {
+    background-color: #EA5F1F;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1em;
+    font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+
+.keyboard-area {
+    display: grid;
+    grid-template-columns: repeat(20, minmax(auto, 1.25em));
+    grid-auto-rows: 3em;
+    gap: 0.25em;
+    justify-content: center;
+}
+
+.key {
+    font-size: inherit;
+    grid-column: span 2;
+    border: none;
+    border-radius: 0.25em;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3A27C;
+    color: black;
+    fill: black;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+}
+
+.key.large {
+    grid-column: span 3;
+}
+
+.key > svg {
+    width: 1.75em;
+    height: 1.75em;
+}
