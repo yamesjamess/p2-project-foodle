@@ -13075,6 +13075,7 @@ const targetWords= [
     "gouda"
   ]
 
+const gameArea = document.querySelector("[data-game-area]")
 
 /**
  * Starts the game and let user able to click or press key to enter their guess.
@@ -13131,6 +13132,8 @@ function handleKeyPress(event) {
         return
     }
 }
+
+function pressKey(key)
 
 function submitGuess(){
 
