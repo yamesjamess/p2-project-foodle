@@ -12971,7 +12971,7 @@ const dictionary = [
     "artsy",
     "rural",
     "shave"
-  ]
+]
 const targetWords= [
     "ranch",
     "onion",
@@ -13073,13 +13073,18 @@ const targetWords= [
     "chive",
     "wafer",
     "gouda"
-  ]
+]
 
 const gameArea = document.querySelector("[data-game-area]")
+const alertContainer = document.querySelector("[data-alert-container]")
+
+/**
+ * Logic for the game to select words from the targetWords array
+ */
 const offsetFromDate = new Date(2023, 0, 1)
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
-let targetword = targetWords[Math.floor(dayOffset)]
+const targetword = targetWords[Math.floor(dayOffset)]
 
 startGame()
 
@@ -13143,26 +13148,15 @@ function getActiveTiles(){
  */
 function pressKey(key){
     let activeTiles = getActiveTiles();
+
     if (activeTiles.length >= 5) {
         return
     }
+
     let nextTile = gameArea.querySelector(":not([data-letter])");
     nextTile.dataset.letter = key.toLowerCase();
     nextTile.textContent = key;
     nextTile.dataset.state = "active";
-}
-
-
-/**
- * Submits user's guess.
- */
-function submitGuess(){
-    let activeTiles = [...getActiveTiles()]
-    if (activeTiles.length !== 5){
-        showAlert("Not enough letters")
-        shakeTiles(activeTiles)
-        return
-    }
 }
 
 /**
@@ -13171,9 +13165,45 @@ function submitGuess(){
 function deleteKey(){
     let activeTiles = getActiveTiles();
     let lastTile = activeTiles[activeTiles.length-1];
+
     if (lastTile == null) return;
+
     lastTile.textContent= ""
     delete lastTile.dataset.state;
     delete lastTile.dataset.letter;
 
+}
+
+/**
+ * Submits user's guess.
+ */
+function submitGuess(){
+    let activeTiles = [...getActiveTiles()]
+
+    if (activeTiles.length !== 5){
+        showAlert("Not enough letters")
+        shakeTiles(activeTiles)
+        return
+    }
+}
+
+/**
+ * Show the alert box
+ */
+function showAlert(message, duration = 1000){
+    let alert = document.createElement("div")
+    alert.textContent = message
+    alert.classList.add("alert")
+    alertContainer.prepend(alert)
+    
+    if (duration == null){
+        return
+    }
+
+    setTimeout(function(){
+        alert.classList.add("hide");
+        alert.addEventListener("transitioned", function(){
+            alert.remove();
+        })
+    }, duration)
 }
