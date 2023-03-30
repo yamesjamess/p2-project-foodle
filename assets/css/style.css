@@ -6,11 +6,11 @@
 }
 
 header {
-    background-color: #0e4323;
+    background-color: hsl(144, 65%, 16%);
 }
 
 body {
-    background-color: #EA5F1F;
+    background-color: hsl(19, 83%, 52%);
     min-height: 100vh;
     margin: 0;
     padding: 1em;
