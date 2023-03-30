@@ -13160,5 +13160,11 @@ function submitGuess(){
  * Delete a letter that the user input.
  */
 function deleteKey(){
+    let activeTiles = getActiveTiles();
+    let lastTile = activeTiles[activeTiles.length-1];
+    if (lastTile == null) return;
+    lastTile.textContent= ""
+    delete lastTile.dataset.state;
+    delete lastTile.dataset.letter;
 
 }
