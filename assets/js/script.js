@@ -13102,14 +13102,10 @@ function handleMouseClick(event) {
     if (event.target.matches("[data-key]")) {
         pressKey(event.target.dataset.key);
         return
-    }
-
-    if (event.target.matches("[data-enter]")) {
+    } else if (event.target.matches("[data-enter]")) {
         submitGuess();
         return
-    }
-
-    if (event.target.matches("[data-delete]")) {
+    } else if (event.target.matches("[data-delete]")) {
         deleteKey();
         return
     }
@@ -13122,14 +13118,10 @@ function handleKeyPress(event) {
     if (event.key.match(/^[a-z]$/)) {
         pressKey(event.key);
         return
-    }
-    
-    if (event.key === "Enter") {
+    } else if (event.key === "Enter") {
         submitGuess();
         return
-    }
-
-    if (event.key === "Backspace" || event.key === "Delete"){
+    } else if (event.key === "Backspace" || event.key === "Delete"){
         deleteKey();
         return
     }
@@ -13146,11 +13138,11 @@ function getActiveTiles(){
  * Enters the key user press/click into the game area.
  */
 function pressKey(key){
-    const activeTiles = getActiveTiles();
+    let activeTiles = getActiveTiles();
     if (activeTiles.length >= 5) {
         return
     }
-    const nextTile = gameArea.querySelector(":not([data-letter])");
+    let nextTile = gameArea.querySelector(":not([data-letter])");
     nextTile.dataset.letter = key.toLowerCase();
     nextTile.textContent = key;
     nextTile.dataset.state = "active";
