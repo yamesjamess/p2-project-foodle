@@ -13076,6 +13076,10 @@ const targetWords= [
   ]
 
 const gameArea = document.querySelector("[data-game-area]")
+const offsetFromDate = new Date(2023, 0, 1)
+const msOffset = Date.now() - offsetFromDate
+const dayOffset = msOffset / 1000 / 60 / 60 / 24
+let targetword = targetWords[Math.floor(dayOffset)]
 
 startGame()
 
