@@ -131,3 +131,35 @@ body {
     background-color: hsl(128, 43%, 40%);
     border: none;
 }
+
+/** Alert **/
+
+.alert-container {
+    position: fixed;
+    top: 20vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 3;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alert {
+    pointer-events: none;
+    background-color: hsl(34, 57%, 70%);
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+    border-radius: 0.25em;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.alert:last-child{
+    margin-bottom: 0;
+}
+
+.alert.hide {
+    opacity: 0;
+}
