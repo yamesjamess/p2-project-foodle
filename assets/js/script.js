@@ -13212,7 +13212,7 @@ function showAlert(message, duration = 1000){
  * Make the tiles shake when user did not input enough words
  */
 function shakeTiles(tiles){
-    tiles.forEach(function(tile){
+    tiles.forEach(function(tile) {
         tile.classList.add("shake");
         tile.addEventListener(
             "animationend",
