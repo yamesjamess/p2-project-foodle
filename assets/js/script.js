@@ -13092,16 +13092,16 @@ startGame()
  * Starts the game and let user able to click or press key to enter their guess.
  */  
 function startGame() {
-    document.addEventListener("click", handleMouseClick)
-    document.addEventListener("keydown", handleKeyPress)
+    document.addEventListener("click", handleMouseClick);
+    document.addEventListener("keydown", handleKeyPress);
 }
 
 /**
  * Stop the game and prevent user from being able to click or press key to enter their guess.
  */  
 function endGame() {
-    document.removeEventListener("click", handleMouseClick)
-    document.removeEventListener("keydown", handleKeyPress)
+    document.removeEventListener("click", handleMouseClick);
+    document.removeEventListener("keydown", handleKeyPress);
 }
 
 /**
@@ -13181,8 +13181,8 @@ function submitGuess(){
     let activeTiles = [...getActiveTiles()]
 
     if (activeTiles.length !== 5){
-        showAlert("Not enough letters")
-        shakeTiles(activeTiles)
+        showAlert("Not enough letters");
+        shakeTiles(activeTiles);
         return
     }
 }
@@ -13192,9 +13192,9 @@ function submitGuess(){
  */
 function showAlert(message, duration = 1000){
     let alert = document.createElement("div")
-    alert.textContent = message
-    alert.classList.add("alert")
-    alertContainer.prepend(alert)
+    alert.textContent = message;
+    alert.classList.add("alert");
+    alertContainer.prepend(alert);
     
     if (duration == null){
         return
@@ -13204,6 +13204,22 @@ function showAlert(message, duration = 1000){
         alert.classList.add("hide");
         alert.addEventListener("transitioned", function(){
             alert.remove();
-        })
-    }, duration)
+        });
+    }, duration);
+}
+
+/**
+ * Make the tiles shake when user did not input enough words
+ */
+function shakeTiles(tiles){
+    tiles.forEach(function(tile){
+        tile.classList.add("shake");
+        tile.addEventListener(
+            "animationend",
+            function() {
+              tile.classList.remove("shake");
+        }, 
+        {once: true}
+        );
+    });
 }
