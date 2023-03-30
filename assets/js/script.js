@@ -13157,7 +13157,12 @@ function pressKey(key){
  * Submits user's guess.
  */
 function submitGuess(){
-
+    let activeTiles = [...getActiveTiles()]
+    if (activeTiles.length !== 5){
+        showAlert("Not enough letters")
+        shakeTiles(activeTiles)
+        return
+    }
 }
 
 /**
