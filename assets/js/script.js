@@ -13076,8 +13076,9 @@ const targetWords= [
 ]
 
 const gameArea = document.querySelector("[data-game-area]")
+const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
-
+const FLIP_ANIMATION_DURATION = 500
 /**
  * Logic for the game to select words from the targetWords array
  */
@@ -13099,7 +13100,7 @@ function startGame() {
 /**
  * Stop the game and prevent user from being able to click or press key to enter their guess.
  */  
-function endGame() {
+function stopGame() {
     document.removeEventListener("click", handleMouseClick);
     document.removeEventListener("keydown", handleKeyPress);
 }
@@ -13196,7 +13197,23 @@ function submitGuess(){
         return
     }
 
-    
+    stopGame();
+    activeTiles.forEach(function(tile, index, array, guess) {
+        flipTile(tile, index, array, guess);
+    }); 
+
+}
+
+/**
+ * Flip the tiles after user have submitted their guess
+ */
+function flipTile(tile, index, array, guess) {
+    let letter = tile.dataset.letter
+    let key = keyboard.querySelector(`[data-key="${letter}"]`)
+
+    setTimeout(function(){
+        tile.classList.add("flip")
+    }, index * FLIP_ANIMATION_DURATION / 2)
 }
 
 /**
