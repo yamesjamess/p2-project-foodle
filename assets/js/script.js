@@ -13185,6 +13185,18 @@ function submitGuess(){
         shakeTiles(activeTiles);
         return
     }
+
+    let guess = activeTiles.reduce(function(word, tile){
+        return word + tile.dataset.letter
+    }, "");
+
+    if (!dictionary.includes(guess)){
+        showAlert("Not in word list");
+        shakeTiles(activeTiles);
+        return
+    }
+
+    
 }
 
 /**
