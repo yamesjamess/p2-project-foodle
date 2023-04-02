@@ -13085,7 +13085,7 @@ const FLIP_ANIMATION_DURATION = 500
 const offsetFromDate = new Date(2023, 0, 1)
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
-const targetword = targetWords[Math.floor(dayOffset)]
+const targetWord = targetWords[Math.floor(dayOffset)]
 
 startGame()
 
@@ -13209,11 +13209,32 @@ function submitGuess(){
  */
 function flipTile(tile, index, array, guess) {
     let letter = tile.dataset.letter
-    let key = keyboard.querySelector(`[data-key="${letter}"]`)
+    let key = keyboard.querySelector(`[data-key="${letter}"i]`)
 
     setTimeout(function(){
         tile.classList.add("flip")
     }, index * FLIP_ANIMATION_DURATION / 2)
+
+    tile.addEventListener("transitionend", function(){
+        tile.classList.remove("flip");
+        if (targetWord[index] === letter){
+            tile.dataset.state = "correct";
+            key.classList.add("correct");
+        } else if (targetWord.includes(letter)) {
+            tile.dataset.state = "wrong-location";
+            key.classList.add("wrong-location");
+        } else {
+            tile.dataset.state = "wrong";
+            key.classList.add("wrong");
+        }
+
+        if (index === array.length - 1) {
+            tile.addEventListener("transitionend", function(){
+                startGame();
+                // checkWinLose(guess, array);
+            }, { once : true })
+        }
+    }, { once : true })
 }
 
 /**
