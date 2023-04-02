@@ -12972,7 +12972,7 @@ const dictionary = [
     "rural",
     "shave"
 ]
-const targetWords= [
+const targetWords = [
     "ranch",
     "onion",
     "flaky",
@@ -13093,7 +13093,7 @@ startGame()
 
 /**
  * Starts the game and let user able to click or press key to enter their guess.
- */  
+ */
 function startGame() {
     document.addEventListener("click", handleMouseClick);
     document.addEventListener("keydown", handleKeyPress);
@@ -13101,7 +13101,7 @@ function startGame() {
 
 /**
  * Stop the game and prevent user from being able to click or press key to enter their guess.
- */  
+ */
 function stopGame() {
     document.removeEventListener("click", handleMouseClick);
     document.removeEventListener("keydown", handleKeyPress);
@@ -13133,7 +13133,7 @@ function handleKeyPress(event) {
     } else if (event.key === "Enter") {
         submitGuess();
         return
-    } else if (event.key === "Backspace" || event.key === "Delete"){
+    } else if (event.key === "Backspace" || event.key === "Delete") {
         deleteKey();
         return
     }
@@ -13142,14 +13142,14 @@ function handleKeyPress(event) {
 /**
  * Get the information how many active tiles are there per guess.
  */
-function getActiveTiles(){
+function getActiveTiles() {
     return gameArea.querySelectorAll('[data-state="active"]');
 }
 
 /**
  * Enters the key user press/click into the game area.
  */
-function pressKey(key){
+function pressKey(key) {
     let activeTiles = getActiveTiles();
 
     if (activeTiles.length >= 5) {
@@ -13165,13 +13165,13 @@ function pressKey(key){
 /**
  * Delete a letter that the user input.
  */
-function deleteKey(){
+function deleteKey() {
     let activeTiles = getActiveTiles();
-    let lastTile = activeTiles[activeTiles.length-1];
+    let lastTile = activeTiles[activeTiles.length - 1];
 
     if (lastTile == null) return;
 
-    lastTile.textContent= ""
+    lastTile.textContent = ""
     delete lastTile.dataset.state;
     delete lastTile.dataset.letter;
 
@@ -13180,29 +13180,29 @@ function deleteKey(){
 /**
  * Submits user's guess.
  */
-function submitGuess(){
+function submitGuess() {
     let activeTiles = [...getActiveTiles()]
 
-    if (activeTiles.length !== 5){
+    if (activeTiles.length !== 5) {
         showAlert("Not enough letters");
         shakeTiles(activeTiles);
         return
     }
 
-    let guess = activeTiles.reduce(function(word, tile){
+    let guess = activeTiles.reduce(function (word, tile) {
         return word + tile.dataset.letter
     }, "");
 
-    if (!dictionary.includes(guess)){
+    if (!dictionary.includes(guess)) {
         showAlert("Not in word list");
         shakeTiles(activeTiles);
         return
     }
 
     stopGame();
-    activeTiles.forEach(function(tile, index, array, guess) {
+    activeTiles.forEach(function (tile, index, array, guess) {
         flipTile(tile, index, array, guess);
-    }); 
+    });
 
 }
 
@@ -13213,13 +13213,13 @@ function flipTile(tile, index, array, guess) {
     let letter = tile.dataset.letter
     let key = keyboard.querySelector(`[data-key="${letter}"i]`)
 
-    setTimeout(function(){
+    setTimeout(function () {
         tile.classList.add("flip")
     }, (index * FLIP_ANIMATION_DURATION) / 2)
 
-    tile.addEventListener("transitionend", function(){
+    tile.addEventListener("transitionend", function () {
         tile.classList.remove("flip");
-        if (targetWord[index] === letter){
+        if (targetWord[index] === letter) {
             tile.dataset.state = "correct";
             key.classList.add("correct");
         } else if (targetWord.includes(letter)) {
@@ -13231,30 +13231,34 @@ function flipTile(tile, index, array, guess) {
         }
 
         if (index === array.length - 1) {
-            tile.addEventListener("transitionend", function(){
+            tile.addEventListener("transitionend", function () {
                 startGame();
                 checkWinLose(guess, array);
-            }, { once : true })
+            }, {
+                once: true
+            })
         }
-    }, { once : true })
+    }, {
+        once: true
+    })
 }
 
 /**
  * Show the alert box
  */
-function showAlert(message, duration = 1000){
+function showAlert(message, duration = 1000) {
     let alert = document.createElement("div")
     alert.textContent = message;
     alert.classList.add("alert");
     alertContainer.prepend(alert);
-    
-    if (duration == null){
+
+    if (duration == null) {
         return
     }
 
-    setTimeout(function(){
+    setTimeout(function () {
         alert.classList.add("hide");
-        alert.addEventListener("transitioned", function(){
+        alert.addEventListener("transitioned", function () {
             alert.remove();
         });
     }, duration);
@@ -13263,15 +13267,16 @@ function showAlert(message, duration = 1000){
 /**
  * Make the tiles shake when user did not input enough words
  */
-function shakeTiles(tiles){
-    tiles.forEach(function(tile) {
+function shakeTiles(tiles) {
+    tiles.forEach(function (tile) {
         tile.classList.add("shake");
         tile.addEventListener(
             "animationend",
-            function() {
-              tile.classList.remove("shake");
-        }, 
-        {once: true}
+            function () {
+                tile.classList.remove("shake");
+            }, {
+                once: true
+            }
         );
     });
 }
@@ -13279,7 +13284,7 @@ function shakeTiles(tiles){
 /**
  * Check the user's guess if it's correct or not
  */
-function checkWinLose(guess, array) {
+function checkWinLose(guess, tiles) {
     if (guess === targetWord) {
         showAlert("You Got It!", 5000);
         danceTiles(tiles);
@@ -13303,6 +13308,6 @@ function danceTiles(tiles) {
                     once: true
                 }
             )
-        }, index * DANCE_ANIMATION_DURATION / 5)
+        }, (index * DANCE_ANIMATION_DURATION) / 5)
     })
 }
