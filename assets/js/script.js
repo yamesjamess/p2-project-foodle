@@ -13215,7 +13215,7 @@ function flipTile(tile, index, array, guess) {
 
     setTimeout(function(){
         tile.classList.add("flip")
-    }, index * FLIP_ANIMATION_DURATION / 2)
+    }, (index * FLIP_ANIMATION_DURATION) / 2)
 
     tile.addEventListener("transitionend", function(){
         tile.classList.remove("flip");
@@ -13233,7 +13233,7 @@ function flipTile(tile, index, array, guess) {
         if (index === array.length - 1) {
             tile.addEventListener("transitionend", function(){
                 startGame();
-                // checkWinLose(guess, array);
+                checkWinLose(guess, array);
             }, { once : true })
         }
     }, { once : true })
@@ -13291,17 +13291,18 @@ function checkWinLose(guess, array) {
 /**
  * Make the tiles dance when the user got the correct answer
  */
-function danceTiles(tiles){
-    tiles.forEach(function(tile, index) {
-        setTimeout(function(){
-        tile.classList.add("shake");
-        tile.addEventListener(
-            "animationend",
-            function() {
-              tile.classList.remove("shake");
-        }, 
-        {once: true}
-        )
-    }, index * DANCE_ANIMATION_DURATION / 5)
-  })  
-} 
+function danceTiles(tiles) {
+    tiles.forEach(function (tile, index) {
+        setTimeout(function () {
+            tile.classList.add("dance");
+            tile.addEventListener(
+                "animationend",
+                function () {
+                    tile.classList.remove("dance");
+                }, {
+                    once: true
+                }
+            )
+        }, index * DANCE_ANIMATION_DURATION / 5)
+    })
+}
