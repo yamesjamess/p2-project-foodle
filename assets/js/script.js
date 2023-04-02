@@ -13200,7 +13200,7 @@ function submitGuess() {
     }
 
     stopGame();
-    activeTiles.forEach(function (tile, index, array, guess) {
+    activeTiles.forEach(function (tile, index, array) {
         flipTile(tile, index, array, guess);
     });
 
