@@ -13291,6 +13291,13 @@ function checkWinLose(guess, tiles) {
         stopGame();
         return
     }
+
+    let remainingTiles = gameArea.querySelectorAll(":not([data-letter])")
+
+    if (remainingTiles.length === 0) {
+        showAlert(`Today's FOOdle word is ${targetWord.toUpperCase()}`, null);
+        stopGame();
+    }
 }
 
 /**
