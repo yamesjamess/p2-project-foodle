@@ -13079,6 +13079,8 @@ const gameArea = document.querySelector("[data-game-area]")
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const FLIP_ANIMATION_DURATION = 500
+const DANCE_ANIMATION_DURATION = 500
+
 /**
  * Logic for the game to select words from the targetWords array
  */
@@ -13285,3 +13287,21 @@ function checkWinLose(guess, array) {
         return
     }
 }
+
+/**
+ * Make the tiles dance when the user got the correct answer
+ */
+function danceTiles(tiles){
+    tiles.forEach(function(tile, index) {
+        setTimeout(function(){
+        tile.classList.add("shake");
+        tile.addEventListener(
+            "animationend",
+            function() {
+              tile.classList.remove("shake");
+        }, 
+        {once: true}
+        )
+    }, index * DANCE_ANIMATION_DURATION / 5)
+  })  
+} 
