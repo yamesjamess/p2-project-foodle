@@ -13273,3 +13273,15 @@ function shakeTiles(tiles){
         );
     });
 }
+
+/**
+ * Check the user's guess if it's correct or not
+ */
+function checkWinLose(guess, array) {
+    if (guess === targetWord) {
+        showAlert("You Got It!", 5000);
+        danceTiles(tiles);
+        stopGame();
+        return
+    }
+}
