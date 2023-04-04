@@ -4,7 +4,6 @@ fetch('assets/js/dictionary.json')
   .then(response => response.json())
   .then(data => {
     dictionary = data;
-    console.log(dictionary);
   })
   .catch(error => console.error(error));
 
@@ -121,7 +120,7 @@ const DANCE_ANIMATION_DURATION = 500
  * Logic for the game to select words from the targetWords array
  */
 const targetWord = targetWords[Math.floor(Math.random() * 100) + 1]
-// console.log(targetWord);
+
 
 startGame()
 
