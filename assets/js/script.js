@@ -1,12 +1,14 @@
+// Get all the possible words that can be used in the game from JSON file
 let dictionary;
 
 fetch('assets/js/dictionary.json')
-  .then(response => response.json())
-  .then(data => {
-    dictionary = data;
-  })
-  .catch(error => console.error(error));
+    .then(response => response.json())
+    .then(data => {
+        dictionary = data;
+    })
+    .catch(error => console.error(error));
 
+// These words are the words that will be used as a correct answer.
 const targetWords = [
     "ranch",
     "onion",
