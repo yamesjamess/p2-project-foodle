@@ -13084,10 +13084,8 @@ const DANCE_ANIMATION_DURATION = 500
 /**
  * Logic for the game to select words from the targetWords array
  */
-const offsetFromDate = new Date(2023, 0, 1)
-const msOffset = Date.now() - offsetFromDate
-const dayOffset = msOffset / 1000 / 60 / 60 / 24
-const targetWord = targetWords[Math.floor(dayOffset)]
+const targetWord = targetWords[Math.floor(Math.random() * 100) + 1]
+console.log(targetWord);
 
 startGame()
 
