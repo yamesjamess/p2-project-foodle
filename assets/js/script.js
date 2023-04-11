@@ -126,6 +126,17 @@ const targetWord = targetWords[Math.floor(Math.random() * 100) + 1]
 
 startGame()
 
+document.addEventListener('DOMContentLoaded', function(){
+    let buttons = document.getElementsByTagName('button');
+
+    for (let button of buttons){
+        button.addEventListener('click', function(){
+            let gameTheme = this.getAttribute('data-type');
+            runGame(gameTheme)
+        })
+    }
+})
+
 /**
  * Starts the game and let user able to click or press key to enter their guess.
  */
