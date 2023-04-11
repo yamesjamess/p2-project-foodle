@@ -1,3 +1,9 @@
+const gameArea = document.querySelector("[data-game-area]")
+const keyboard = document.querySelector("[data-keyboard]")
+const alertContainer = document.querySelector("[data-alert-container]")
+const FLIP_ANIMATION_DURATION = 500
+const DANCE_ANIMATION_DURATION = 500
+
 // Get all the possible words that can be used in the game from JSON file
 let dictionary;
 
@@ -8,141 +14,60 @@ fetch('assets/js/dictionary.json')
     })
     .catch(error => console.error(error));
 
-// These words are the words that will be used as a correct answer.
-const targetWords = [
-    "ranch",
-    "onion",
-    "flaky",
-    "fluke",
-    "pizza",
-    "sugar",
-    "cream",
-    "chewy",
-    "grits",
-    "salsa",
-    "snail",
-    "cocoa",
-    "chips",
-    "matzo",
-    "snack",
-    "mango",
-    "bagel",
-    "seeds",
-    "acorn",
-    "umami",
-    "shell",
-    "jerky",
-    "chard",
-    "algae",
-    "mochi",
-    "wings",
-    "honey",
-    "pinto",
-    "assam",
-    "flank",
-    "gummy",
-    "zesty",
-    "whisk",
-    "beans",
-    "cakes",
-    "fudge",
-    "toffy",
-    "cumin",
-    "peeps",
-    "spuds",
-    "caper",
-    "guava",
-    "kefir",
-    "mince",
-    "sweet",
-    "jelly",
-    "salty",
-    "candy",
-    "basil",
-    "bream",
-    "roast",
-    "conch",
-    "aroma",
-    "patty",
-    "refry",
-    "flake",
-    "agave",
-    "liver",
-    "torta",
-    "curry",
-    "tuber",
-    "maple",
-    "flour",
-    "mezze",
-    "prawn",
-    "dates",
-    "fruit",
-    "minty",
-    "latte",
-    "cacao",
-    "enoki",
-    "durum",
-    "kiwis",
-    "chili",
-    "goose",
-    "donut",
-    "bread",
-    "olive",
-    "grape",
-    "korma",
-    "juice",
-    "apple",
-    "peach",
-    "prune",
-    "plums",
-    "salad",
-    "rosti",
-    "anise",
-    "mirin",
-    "smelt",
-    "bento",
-    "fries",
-    "squid",
-    "dulse",
-    "wagyu",
-    "penne",
-    "limes",
-    "chive",
-    "wafer",
-    "gouda"
-]
-
-const gameArea = document.querySelector("[data-game-area]")
-const keyboard = document.querySelector("[data-keyboard]")
-const alertContainer = document.querySelector("[data-alert-container]")
-const FLIP_ANIMATION_DURATION = 500
-const DANCE_ANIMATION_DURATION = 500
+/**
+ * This array will contain the words that will be used as answer the of game.
+ * The words will be coming from runGame function when user select theme of the game.
+ */ 
+let targetWords = []
 
 /**
  * Logic for the game to select words from the targetWords array
  */
-const targetWord = targetWords[Math.floor(Math.random() * 100) + 1]
-
-
-startGame()
-
-document.addEventListener('DOMContentLoaded', function(){
-    let buttons = document.getElementsByTagName('button');
-
-    for (let button of buttons){
-        button.addEventListener('click', function(){
-            let gameTheme = this.getAttribute('data-type');
-            runGame(gameTheme)
-        })
-    }
-})
+const targetWord = runGame("fruit")
 
 /**
- * Starts the game and let user able to click or press key to enter their guess.
+ * Logic for the game to select which theme the target word needs to be
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    let buttons = document.getElementsByTagName('button');
+
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
+            let gameTheme = this.getAttribute('data-type');
+            runGame(gameTheme);
+        })
+    }
+    runGame();
+})
+
+
+/**
+ * Starts the game and select which targetWords list to use based on what the theme user selected.
+ */
+function runGame(gameTheme) {
+    // if the user select fruit theme, the target word will be from this array
+    if (gameTheme === "fruit") {
+        targetWords = ["acorn", "carob", "dates", "gourd", "grape", "lemon", "limes", "mango", "melon", "olive", "peach", "pears", "plums", "prune", "salak"];
+    }
+
+    // if the user select vegatable theme, the target word will be from this array
+    if (gameTheme === "vegetable") {
+        targetWords = ["azuki", "basil", "beans", "caper", "chard", "dulse", "enoki", "grain", "groat", "maize", "morel", "pinto", "ramps", "thyme", "wheat"];
+    }
+    console.log(targetWords)
+
+    const chosenWord = targetWords[Math.floor(Math.random() * 15)];
+    console.log(chosenWord)
+    return chosenWord;
+}
+
+/**
+ * Starts the app and let user able to click or press key to enter their guess.
  */
 function startGame() {
     document.addEventListener("click", handleMouseClick);
     document.addEventListener("keydown", handleKeyPress);
+    runGame();
 }
 
 /**
@@ -279,7 +204,7 @@ function flipTile(tile, index, array, guess) {
         if (index === array.length - 1) {
             tile.addEventListener("transitionend", function () {
                 startGame();
-                checkWinLose(guess, array);
+                checkAnswer(guess, array);
             }, {
                 once: true
             })
@@ -330,9 +255,9 @@ function shakeTiles(tiles) {
 /**
  * Check the user's guess if it's correct or not
  */
-function checkWinLose(guess, tiles) {
+function checkAnswer(guess, tiles) {
     if (guess === targetWord) {
-        showAlert("You Got It!", 5000);
+        showAlert("You Got It!", 3000);
         danceTiles(tiles);
         stopGame();
         return
@@ -341,7 +266,7 @@ function checkWinLose(guess, tiles) {
     let remainingTiles = gameArea.querySelectorAll(":not([data-letter])")
 
     if (remainingTiles.length === 0) {
-        showAlert(`Today's FOOdle word is ${targetWord.toUpperCase()}`, null);
+        showAlert(`The correct FOOdle word is ${targetWord.toUpperCase()}`, null);
         stopGame();
     }
 }
