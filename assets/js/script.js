@@ -4,6 +4,7 @@ const alertContainer = document.querySelector("[data-alert-container]")
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 
+
 // Get all the possible words that can be used in the game from JSON file
 let dictionary;
 
@@ -17,49 +18,71 @@ fetch('assets/js/dictionary.json')
 /**
  * This array will contain the words that will be used as answer the of game.
  * The words will be coming from runGame function when user select theme of the game.
- */ 
+ */
 let targetWords = []
+
+//this variable help prevent the function addFruitWords and addVegWords from running more than once
+let fruitWordsAdded = false;
+let vegWordsAdded = false;
+
 
 /**
  * Logic for the game to select words from the targetWords array
  */
-const targetWord = runGame("fruit")
+let targetWord = [];
+
 
 /**
  * Logic for the game to select which theme the target word needs to be
  */
-document.addEventListener('DOMContentLoaded', function () {
-    let buttons = document.getElementsByTagName('button');
+document.addEventListener("DOMContentLoaded", function () {
+    let fruitButton = document.getElementById("fruit-btn");
+    let vegButton = document.getElementById("veg-btn");
+    let resetButton = document.getElementById("reset-btn");
 
-    for (let button of buttons) {
-        button.addEventListener('click', function () {
-            let gameTheme = this.getAttribute('data-type');
-            runGame(gameTheme);
-        })
+    fruitButton.addEventListener('click', addFruitWords);
+    vegButton.addEventListener('click', addVegWords);
+    resetButton.addEventListener('click', resetTargetWords);
+
+    function addFruitWords() {
+        if (!fruitWordsAdded && !vegWordsAdded) {
+            let fruitWords = ["acorn", "carob", "dates", "gourd", "grape", "lemon", "limes", "mango", "melon", "olive", "peach", "pears", "plums", "prune", "salak"];
+            targetWords.push(...fruitWords);
+
+            let chosenFruitWord = targetWords[Math.floor(Math.random() * targetWords.length)];
+            targetWord.push(chosenFruitWord);
+            fruitWordsAdded = true;
+            startGame()
+            console.log(targetWord)
+        }
     }
-    runGame();
+
+    function addVegWords() {
+        if (!vegWordsAdded && !fruitWordsAdded) {
+            let vegWords = ["azuki", "basil", "beans", "caper", "chard", "dulse", "enoki", "grain", "groat", "maize", "morel", "pinto", "ramps", "thyme", "wheat"];
+            targetWords.push(...vegWords);
+
+            let chosenVegWord = targetWords[Math.floor(Math.random() * targetWords.length)];
+            targetWord.push(chosenVegWord);
+            vegWordsAdded = true;
+            fruitWordsAdded = true;
+            startGame()
+            console.log(targetWord)
+        }
+    }
 })
 
 
 /**
- * Starts the game and select which targetWords list to use based on what the theme user selected.
+ * Function to restart the game.
  */
-function runGame(gameTheme) {
-    // if the user select fruit theme, the target word will be from this array
-    if (gameTheme === "fruit") {
-        targetWords = ["acorn", "carob", "dates", "gourd", "grape", "lemon", "limes", "mango", "melon", "olive", "peach", "pears", "plums", "prune", "salak"];
-    }
-
-    // if the user select vegatable theme, the target word will be from this array
-    if (gameTheme === "vegetable") {
-        targetWords = ["azuki", "basil", "beans", "caper", "chard", "dulse", "enoki", "grain", "groat", "maize", "morel", "pinto", "ramps", "thyme", "wheat"];
-    }
-    console.log(targetWords)
-
-    const chosenWord = targetWords[Math.floor(Math.random() * 15)];
-    console.log(chosenWord)
-    return chosenWord;
-}
+function resetTargetWords() {
+    stopGame();
+    targetWords = [];
+    targetWord = [];
+    fruitWordsAdded = false;
+    vegWordsAdded = false;
+} 
 
 /**
  * Starts the app and let user able to click or press key to enter their guess.
@@ -67,7 +90,6 @@ function runGame(gameTheme) {
 function startGame() {
     document.addEventListener("click", handleMouseClick);
     document.addEventListener("keydown", handleKeyPress);
-    runGame();
 }
 
 /**
@@ -183,7 +205,7 @@ function submitGuess() {
 function flipTile(tile, index, array, guess) {
     let letter = tile.dataset.letter
     let key = keyboard.querySelector(`[data-key="${letter}"i]`)
-
+    
     setTimeout(function () {
         tile.classList.add("flip")
     }, (index * FLIP_ANIMATION_DURATION) / 2)
@@ -191,12 +213,15 @@ function flipTile(tile, index, array, guess) {
     tile.addEventListener("transitionend", function () {
         tile.classList.remove("flip");
         if (targetWord[index] === letter) {
+            console.log(targetWord)
             tile.dataset.state = "correct";
             key.classList.add("correct");
         } else if (targetWord.includes(letter)) {
+            console.log(targetWord)
             tile.dataset.state = "wrong-location";
             key.classList.add("wrong-location");
         } else {
+            console.log(targetWord)
             tile.dataset.state = "wrong";
             key.classList.add("wrong");
         }
