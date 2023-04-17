@@ -312,6 +312,25 @@ function danceTiles(tiles) {
     })
 }
 
-let openRulesButton = document.querySelector("[data-rules-target]")
-let closeRulesButton = document.querySelector("[data-close-button]")
-let overlay = documet.getElementById("overlay")
+let openRulesButton = document.querySelector("[data-rules-target]");
+let closeRulesButton = document.querySelector("[data-close-button]");
+let overlay = documet.getElementById("overlay");
+
+openRulesButton.forEach(function(button) {
+    button.addEventListener("click", function(){
+        let rules = document.querySelector(button.dataset.rulesTarget);
+        openRules(rules);
+    });
+});
+
+function openRules(rules) {
+    if (rules == null) return;
+    rules.classList.add("active")
+    overlay.classList.add("active")
+}
+
+function closeRules(rules) {
+    if (rules == null) return;
+    rules.classList.remove("active")
+    overlay.classList.remove("active")
+}
