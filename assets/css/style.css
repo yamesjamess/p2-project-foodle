@@ -231,3 +231,57 @@ body {
     opacity: 0;
 }
 
+/** Modal **/
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: hsl(19, 100%, 65% );
+    width: 75vw;
+    max-width: 80%;
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 2px solid black;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .header-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px 25px;
+}
+
+.modal-body h3{
+    margin-top: 0;
+}
+
+#example > li {
+    padding-bottom: 25px;
+    list-style: none;
+}
+
+li > img {
+    max-width: 35vw;
+}
