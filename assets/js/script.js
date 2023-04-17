@@ -29,7 +29,7 @@ let vegWordsAdded = false;
 /**
  * Logic for the game to select words from the targetWords array
  */
-let targetWord = [];
+let targetWord;
 
 
 /**
@@ -50,9 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
             targetWords.push(...fruitWords);
 
             let chosenFruitWord = targetWords[Math.floor(Math.random() * targetWords.length)];
-            targetWord.push(chosenFruitWord);
+            targetWord = chosenFruitWord
             fruitWordsAdded = true;
             startGame()
+            console.log("Logging from addFruitWord")
             console.log(targetWord)
         }
     }
@@ -63,10 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
             targetWords.push(...vegWords);
 
             let chosenVegWord = targetWords[Math.floor(Math.random() * targetWords.length)];
-            targetWord.push(chosenVegWord);
+            targetWord = chosenVegWord
             vegWordsAdded = true;
             fruitWordsAdded = true;
             startGame()
+            console.log("Logging from addVegWord")
             console.log(targetWord)
         }
     }
@@ -212,15 +214,20 @@ function flipTile(tile, index, array, guess) {
 
     tile.addEventListener("transitionend", function () {
         tile.classList.remove("flip");
+
+        // when the tile fliped back this if loop will add colour accordingly
         if (targetWord[index] === letter) {
+            console.log("Logging from flipTile Correct")
             console.log(targetWord)
             tile.dataset.state = "correct";
             key.classList.add("correct");
         } else if (targetWord.includes(letter)) {
+            console.log("Logging from flipTile Wrong Location")
             console.log(targetWord)
             tile.dataset.state = "wrong-location";
             key.classList.add("wrong-location");
         } else {
+            console.log("Logging from flipTile Wrong")
             console.log(targetWord)
             tile.dataset.state = "wrong";
             key.classList.add("wrong");
