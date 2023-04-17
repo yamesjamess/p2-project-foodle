@@ -231,9 +231,9 @@ body {
     opacity: 0;
 }
 
-/** Modal **/
+/** Rules **/
 
-.modal {
+.rules {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -247,11 +247,11 @@ body {
     transition: 200ms ease-in-out;
 }
 
-.modal.active {
+.rules.active {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-header {
+.rules-header {
     padding: 20px 25px;
     border-bottom: 2px solid black;
     
@@ -260,12 +260,12 @@ body {
     align-items: center;
 }
 
-.modal-header .header-title {
+.rules-header .header-title {
     font-size: 2rem;
     font-weight: bold;
 }
 
-.modal-header .close-button {
+.rules-header .close-button {
     cursor: pointer;
     border: none;
     outline: none;
@@ -274,11 +274,11 @@ body {
     font-weight: bold;
 }
 
-.modal-body {
+.rules-body {
     padding: 20px 25px;
 }
 
-.modal-body h3{
+.rules-body h3{
     margin-top: 0;
 }
 
