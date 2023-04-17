@@ -312,3 +312,6 @@ function danceTiles(tiles) {
     })
 }
 
+let openModalButton = document.querySelector("[data-modal-target]")
+let closeModalButton = document.querySelector("[data-close-button]")
+let overlay = documet.getElementById("overlay")
