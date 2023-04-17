@@ -80,7 +80,7 @@ function resetTargetWords() {
     targetWord = [];
     fruitWordsAdded = false;
     vegWordsAdded = false;
-} 
+}
 
 /**
  * Starts the app and let user able to click or press key to enter their guess.
@@ -203,7 +203,7 @@ function submitGuess() {
 function flipTile(tile, index, array, guess) {
     let letter = tile.dataset.letter
     let key = keyboard.querySelector(`[data-key="${letter}"i]`)
-    
+
     setTimeout(function () {
         tile.classList.add("flip")
     }, (index * FLIP_ANIMATION_DURATION) / 2)
@@ -312,25 +312,32 @@ function danceTiles(tiles) {
     })
 }
 
-let openRulesButton = document.querySelector("[data-rules-target]");
-let closeRulesButton = document.querySelector("[data-close-button]");
-let overlay = documet.getElementById("overlay");
+let openRulesButton = document.querySelectorAll("[data-rules-target]");
+let closeRulesButton = document.querySelectorAll("[data-close-button]");
+let overlay = document.getElementById("overlay");
 
-openRulesButton.forEach(function(button) {
-    button.addEventListener("click", function(){
+openRulesButton.forEach(function (button) {
+    button.addEventListener("click", function () {
         let rules = document.querySelector(button.dataset.rulesTarget);
         openRules(rules);
     });
 });
 
+closeRulesButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+        let rules = button.closest(".rules");
+        closeRules(rules);
+    });
+});
+
 function openRules(rules) {
     if (rules == null) return;
-    rules.classList.add("active")
-    overlay.classList.add("active")
+    rules.classList.add("active");
+    overlay.classList.add("active");
 }
 
 function closeRules(rules) {
     if (rules == null) return;
-    rules.classList.remove("active")
-    overlay.classList.remove("active")
+    rules.classList.remove("active");
+    overlay.classList.remove("active");
 }
