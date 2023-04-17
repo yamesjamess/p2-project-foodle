@@ -237,13 +237,18 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     border: 5px solid black;
     border-radius: 10px;
     z-index: 10;
     background-color: hsl(19, 100%, 65% );
     width: 75vw;
     max-width: 80%;
+    transition: 200ms ease-in-out;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-header {
@@ -295,6 +300,7 @@ li > img {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
+    transition: 200ms ease-in-out;
 }
 
 #overlay.active {
