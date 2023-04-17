@@ -323,6 +323,8 @@ openRulesButton.forEach(function (button) {
     });
 });
 
+overlay.addEventListener("click", overlayCloseRules);
+
 closeRulesButton.forEach(function (button) {
     button.addEventListener("click", function () {
         let rules = button.closest(".rules");
@@ -340,4 +342,11 @@ function closeRules(rules) {
     if (rules == null) return;
     rules.classList.remove("active");
     overlay.classList.remove("active");
+}
+
+function overlayCloseRules() {
+    let rules = document.querySelectorAll(".rules.active");
+    rules.forEach(function (rules){
+        closeRules(rules);
+    });
 }
