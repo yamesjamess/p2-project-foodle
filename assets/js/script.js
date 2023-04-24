@@ -30,6 +30,45 @@ let vegWordsAdded = false;
 let targetWord;
 
 
+let openRulesButton = document.querySelectorAll("[data-rules-target]");
+let closeRulesButton = document.querySelectorAll("[data-close-button]");
+let overlay = document.getElementById("overlay");
+
+openRulesButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+        let rules = document.querySelector(button.dataset.rulesTarget);
+        openRules(rules);
+    });
+});
+
+overlay.addEventListener("click", overlayCloseRules);
+
+closeRulesButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+        let rules = button.closest(".rules");
+        closeRules(rules);
+    });
+});
+
+function openRules(rules) {
+    if (rules == null) return;
+    rules.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeRules(rules) {
+    if (rules == null) return;
+    rules.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+function overlayCloseRules() {
+    let rules = document.querySelectorAll(".rules.active");
+    rules.forEach(function (rules){
+        closeRules(rules);
+    });
+}
+
 /**
  * Logic for the game to select the theme of the target word.
  */
@@ -312,41 +351,3 @@ function danceTiles(tiles) {
     })
 }
 
-let openRulesButton = document.querySelectorAll("[data-rules-target]");
-let closeRulesButton = document.querySelectorAll("[data-close-button]");
-let overlay = document.getElementById("overlay");
-
-openRulesButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-        let rules = document.querySelector(button.dataset.rulesTarget);
-        openRules(rules);
-    });
-});
-
-overlay.addEventListener("click", overlayCloseRules);
-
-closeRulesButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-        let rules = button.closest(".rules");
-        closeRules(rules);
-    });
-});
-
-function openRules(rules) {
-    if (rules == null) return;
-    rules.classList.add("active");
-    overlay.classList.add("active");
-}
-
-function closeRules(rules) {
-    if (rules == null) return;
-    rules.classList.remove("active");
-    overlay.classList.remove("active");
-}
-
-function overlayCloseRules() {
-    let rules = document.querySelectorAll(".rules.active");
-    rules.forEach(function (rules){
-        closeRules(rules);
-    });
-}
