@@ -1,13 +1,32 @@
-const gameArea = document.querySelector("[data-game-area]")
-const keyboard = document.querySelector("[data-keyboard]")
-const alertContainer = document.querySelector("[data-alert-container]")
-const FLIP_ANIMATION_DURATION = 500
-const DANCE_ANIMATION_DURATION = 500
-
+//Constant & Variables
+const gameArea = document.querySelector("[data-game-area]");
+const keyboard = document.querySelector("[data-keyboard]");
+const alertContainer = document.querySelector("[data-alert-container]");
+const FLIP_ANIMATION_DURATION = 500;
+const DANCE_ANIMATION_DURATION = 500;
 
 // Get all the possible words that can be used in the game from JSON file
 let dictionary;
 
+/**
+ * This array will contain the words that will be used as answer the of game.
+ * The words will be coming from runGame function, when user select theme of the game.
+ */
+let targetWords = []
+
+// this variable will contain the word that the user need to guess to win the game.
+let targetWord;
+
+//this variable help prevent the function addFruitWords and addVegWords from running more than once
+let fruitWordsAdded = false;
+let vegWordsAdded = false;
+
+//Event listener variables
+let openRulesButton = document.querySelectorAll("[data-rules-target]");
+let closeRulesButton = document.querySelectorAll("[data-close-button]");
+let overlay = document.getElementById("overlay");
+
+//fetch method to get list of all available words from JSON file.
 fetch('assets/js/dictionary.json')
     .then(response => response.json())
     .then(data => {
@@ -15,25 +34,7 @@ fetch('assets/js/dictionary.json')
     })
     .catch(error => console.error(error));
 
-/**
- * This array will contain the words that will be used as answer the of game.
- * The words will be coming from runGame function when user select theme of the game.
- */
-let targetWords = []
-
-//this variable help prevent the function addFruitWords and addVegWords from running more than once
-let fruitWordsAdded = false;
-let vegWordsAdded = false;
-
-
-// this variable will contain the word that the user need to guess to win the game.
-let targetWord;
-
-
-let openRulesButton = document.querySelectorAll("[data-rules-target]");
-let closeRulesButton = document.querySelectorAll("[data-close-button]");
-let overlay = document.getElementById("overlay");
-
+//Event Listeners Registrations
 openRulesButton.forEach(function (button) {
     button.addEventListener("click", function () {
         let rules = document.querySelector(button.dataset.rulesTarget);
@@ -50,6 +51,94 @@ closeRulesButton.forEach(function (button) {
     });
 });
 
+/**
+ * Logic for the game to select the theme of the target word.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+    let fruitButton = document.getElementById("fruit-btn");
+    let vegButton = document.getElementById("veg-btn");
+    let resetButton = document.getElementById("reset-btn");
+
+    fruitButton.addEventListener('click', addFruitWords);
+    vegButton.addEventListener('click', addVegWords);
+    resetButton.addEventListener('click', resetTargetWords);
+
+    /** this function will randomly choose a vegetable word from the array and 
+     * assign it to targetWord 
+     */ 
+        function addFruitWords() {
+        if (!fruitWordsAdded && !vegWordsAdded) {
+            let fruitWords = ["acorn", 
+            "carob", 
+            "dates", 
+            "gourd", 
+            "grape", 
+            "lemon", 
+            "limes", 
+            "mango", 
+            "melon", 
+            "olive", 
+            "peach", 
+            "pears", 
+            "plums", 
+            "prune", 
+            "salak"];
+            targetWords.push(...fruitWords);
+
+            let chosenFruitWord = targetWords[
+                Math.floor(Math.random() * targetWords.length)];
+            targetWord = chosenFruitWord;
+            fruitWordsAdded = true;
+            startGame();
+        }
+    }
+
+    /** this function will randomly choose a vegetable word from the array and 
+     * assign it to targetWord 
+     */ 
+    function addVegWords() {
+        if (!vegWordsAdded && !fruitWordsAdded) {
+            let vegWords = ["azuki", 
+            "basil", 
+            "beans", 
+            "caper", 
+            "chard", 
+            "dulse", 
+            "enoki", 
+            "grain", 
+            "groat", 
+            "maize", 
+            "morel", 
+            "pinto", 
+            "ramps", 
+            "thyme", 
+            "wheat"];
+            targetWords.push(...vegWords);
+
+            let chosenVegWord = targetWords[
+                Math.floor(Math.random() * targetWords.length)];
+            targetWord = chosenVegWord;
+            vegWordsAdded = true;
+            fruitWordsAdded = true;
+            startGame();
+        }
+    }
+});
+
+//Functions Definitions
+
+/**
+ * Function to restart the game.
+ */
+function resetTargetWords() {
+    stopGame();
+    targetWords = [];
+    targetWord = [];
+    fruitWordsAdded = false;
+    vegWordsAdded = false;
+}
+
+//These are functions for the rule modal window
 function openRules(rules) {
     if (rules == null) return;
     rules.classList.add("active");
@@ -64,62 +153,12 @@ function closeRules(rules) {
 
 function overlayCloseRules() {
     let rules = document.querySelectorAll(".rules.active");
-    rules.forEach(function (rules){
+    rules.forEach(function (rules) {
         closeRules(rules);
     });
 }
 
-/**
- * Logic for the game to select the theme of the target word.
- */
-document.addEventListener("DOMContentLoaded", function () {
-    let fruitButton = document.getElementById("fruit-btn");
-    let vegButton = document.getElementById("veg-btn");
-    let resetButton = document.getElementById("reset-btn");
-
-    fruitButton.addEventListener('click', addFruitWords);
-    vegButton.addEventListener('click', addVegWords);
-    resetButton.addEventListener('click', resetTargetWords);
-
-    // this function will randomly choose a fruit word from the array and assign it to targetWord
-    function addFruitWords() {
-        if (!fruitWordsAdded && !vegWordsAdded) {
-            let fruitWords = ["acorn", "carob", "dates", "gourd", "grape", "lemon", "limes", "mango", "melon", "olive", "peach", "pears", "plums", "prune", "salak"];
-            targetWords.push(...fruitWords);
-
-            let chosenFruitWord = targetWords[Math.floor(Math.random() * targetWords.length)];
-            targetWord = chosenFruitWord
-            fruitWordsAdded = true;
-            startGame()
-        }
-    }
-
-    // this function will randomly choose a vegetable word from the array and assign it to targetWord
-    function addVegWords() {
-        if (!vegWordsAdded && !fruitWordsAdded) {
-            let vegWords = ["azuki", "basil", "beans", "caper", "chard", "dulse", "enoki", "grain", "groat", "maize", "morel", "pinto", "ramps", "thyme", "wheat"];
-            targetWords.push(...vegWords);
-
-            let chosenVegWord = targetWords[Math.floor(Math.random() * targetWords.length)];
-            targetWord = chosenVegWord
-            vegWordsAdded = true;
-            fruitWordsAdded = true;
-            startGame()
-        }
-    }
-})
-
-
-/**
- * Function to restart the game.
- */
-function resetTargetWords() {
-    stopGame();
-    targetWords = [];
-    targetWord = [];
-    fruitWordsAdded = false;
-    vegWordsAdded = false;
-}
+//The functions below are coded along from a tutorial by Web Dev Simplified
 
 /**
  * Starts the app and let user able to click or press key to enter their guess.
@@ -130,7 +169,8 @@ function startGame() {
 }
 
 /**
- * Stop the game and prevent user from being able to click or press key to enter their guess.
+ * Stop the game and prevent user from being able to click 
+ * or press key to enter their guess.
  */
 function stopGame() {
     document.removeEventListener("click", handleMouseClick);
@@ -138,34 +178,34 @@ function stopGame() {
 }
 
 /**
- * Event Listener when the user click on key with mouse.
+ * Function that handle the users click on key with cursor.
  */
 function handleMouseClick(event) {
     if (event.target.matches("[data-key]")) {
         pressKey(event.target.dataset.key);
-        return
+        return;
     } else if (event.target.matches("[data-enter]")) {
         submitGuess();
-        return
+        return;
     } else if (event.target.matches("[data-delete]")) {
         deleteKey();
-        return
+        return;
     }
 }
 
 /**
- * Event Listener when the user press on key with keyboard.
+ * Function that handle the users click on key with keyboard.
  */
 function handleKeyPress(event) {
     if (event.key.match(/^[a-z]$/)) {
         pressKey(event.key);
-        return
+        return;
     } else if (event.key === "Enter") {
         submitGuess();
-        return
+        return;
     } else if (event.key === "Backspace" || event.key === "Delete") {
         deleteKey();
-        return
+        return;
     }
 }
 
@@ -183,7 +223,7 @@ function pressKey(key) {
     let activeTiles = getActiveTiles();
 
     if (activeTiles.length >= 5) {
-        return
+        return;
     }
 
     let nextTile = gameArea.querySelector(":not([data-letter])");
@@ -201,7 +241,7 @@ function deleteKey() {
 
     if (lastTile == null) return;
 
-    lastTile.textContent = ""
+    lastTile.textContent = "";
     delete lastTile.dataset.state;
     delete lastTile.dataset.letter;
 
@@ -211,22 +251,22 @@ function deleteKey() {
  * Submits user's guess.
  */
 function submitGuess() {
-    let activeTiles = [...getActiveTiles()]
+    let activeTiles = [...getActiveTiles()];
 
     if (activeTiles.length !== 5) {
         showAlert("Not enough letters");
         shakeTiles(activeTiles);
-        return
+        return;
     }
 
     let guess = activeTiles.reduce(function (word, tile) {
-        return word + tile.dataset.letter
+        return word + tile.dataset.letter;
     }, "");
 
     if (!dictionary.includes(guess)) {
         showAlert("Not in word list");
         shakeTiles(activeTiles);
-        return
+        return;
     }
 
     stopGame();
@@ -240,12 +280,12 @@ function submitGuess() {
  * Flip the tiles after user have submitted their guess
  */
 function flipTile(tile, index, array, guess) {
-    let letter = tile.dataset.letter
-    let key = keyboard.querySelector(`[data-key="${letter}"i]`)
+    let letter = tile.dataset.letter;
+    let key = keyboard.querySelector(`[data-key="${letter}"i]`);
 
     setTimeout(function () {
-        tile.classList.add("flip")
-    }, (index * FLIP_ANIMATION_DURATION) / 2)
+        tile.classList.add("flip");
+    }, (index * FLIP_ANIMATION_DURATION) / 2);
 
     tile.addEventListener("transitionend", function () {
         tile.classList.remove("flip");
@@ -268,24 +308,24 @@ function flipTile(tile, index, array, guess) {
                 checkAnswer(guess, array);
             }, {
                 once: true
-            })
+            });
         }
     }, {
         once: true
-    })
+    });
 }
 
 /**
  * Show the alert box
  */
 function showAlert(message, duration = 1000) {
-    let alert = document.createElement("div")
+    let alert = document.createElement("div");
     alert.textContent = message;
     alert.classList.add("alert");
     alertContainer.prepend(alert);
 
     if (duration == null) {
-        return
+        return;
     }
 
     setTimeout(function () {
@@ -321,10 +361,10 @@ function checkAnswer(guess, tiles) {
         showAlert("You Got It!", 3000);
         danceTiles(tiles);
         stopGame();
-        return
+        return;
     }
 
-    let remainingTiles = gameArea.querySelectorAll(":not([data-letter])")
+    let remainingTiles = gameArea.querySelectorAll(":not([data-letter])");
 
     if (remainingTiles.length === 0) {
         showAlert(`The correct FOOdle word is ${targetWord.toUpperCase()}`, null);
@@ -346,8 +386,7 @@ function danceTiles(tiles) {
                 }, {
                     once: true
                 }
-            )
-        }, (index * DANCE_ANIMATION_DURATION) / 5)
-    })
+            );
+        }, (index * DANCE_ANIMATION_DURATION) / 5);
+    });
 }
-
