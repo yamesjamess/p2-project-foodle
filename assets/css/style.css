@@ -339,7 +339,7 @@ li > img {
     max-width: 35vw;
 }
 
-#rule-overlay {
+#overlay {
     position: fixed;
     opacity: 0;
     top: 0;
@@ -351,7 +351,44 @@ li > img {
     transition: 200ms ease-in-out;
 }
 
-#rule-overlay.active {
+#overlay.active {
     opacity: 1;
     pointer-events: all;
+}
+
+/** Starting Window **/
+
+.start-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(/assets/images/start-window-image.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input {
+    text-align: center;
+    font-size: inherit;
+}
+
+.start-body > h3, .start-title > h1 {
+    text-shadow: 1px 0px 5px #FFF;
+}
+
+#start-button {
+    font-size: inherit;
+    padding: 0.5% 5%;
+    border-radius: 5px;
 }
