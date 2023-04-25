@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Math.floor(Math.random() * targetWords.length)];
             targetWord = chosenFruitWord;
             fruitWordsAdded = true;
+            fruitButton.classList.add("active-theme");
             startGame();
         }
     }
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             targetWord = chosenVegWord;
             vegWordsAdded = true;
             fruitWordsAdded = true;
+            vegButton.classList.add("active-theme");
             startGame();
         }
     }

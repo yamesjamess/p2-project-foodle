@@ -64,6 +64,11 @@ header {
     
 }
 
+.active-theme{
+    outline: 2px solid floralwhite;
+    outline-offset: 2px;
+}
+
 /** Keyboard **/
 
 #keyboard-area {
