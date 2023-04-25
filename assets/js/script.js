@@ -25,6 +25,9 @@ let vegWordsAdded = false;
 let openRulesButton = document.querySelectorAll("[data-rules-target]");
 let closeRulesButton = document.querySelectorAll("[data-close-button]");
 let overlay = document.getElementById("overlay");
+let inputUsername = document.querySelector("input");
+let startButton = document.getElementById("start-button");
+let username;
 
 //fetch method to get list of all available words from JSON file.
 fetch('assets/js/dictionary.json')
@@ -35,6 +38,8 @@ fetch('assets/js/dictionary.json')
     .catch(error => console.error(error));
 
 //Event Listeners Registrations
+
+//Event listener for opening the rule window
 openRulesButton.forEach(function (button) {
     button.addEventListener("click", function () {
         let rules = document.querySelector(button.dataset.rulesTarget);
@@ -42,14 +47,19 @@ openRulesButton.forEach(function (button) {
     });
 });
 
+//Event listener to close rule window when clicked on overlay
 overlay.addEventListener("click", overlayCloseRules);
 
+//Event listener to close rule window when click on the close button
 closeRulesButton.forEach(function (button) {
     button.addEventListener("click", function () {
         let rules = button.closest(".rules");
         closeRules(rules);
     });
 });
+
+//Event listener for start button
+startButton.addEventListener("click", handleStart);
 
 /**
  * Logic for the game to select the theme of the target word.
@@ -90,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             targetWord = chosenFruitWord;
             fruitWordsAdded = true;
             fruitButton.classList.add("active-theme");
+            showAlert("You have selected Fruit Words", 2000);
             startGame();
         }
     }
@@ -122,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
             vegWordsAdded = true;
             fruitWordsAdded = true;
             vegButton.classList.add("active-theme");
+            showAlert("You have selected Vegetable Words", 2000);
             startGame();
         }
     }
@@ -138,6 +150,19 @@ function resetTargetWords() {
     targetWord = [];
     fruitWordsAdded = false;
     vegWordsAdded = false;
+}
+
+/**
+ * Function for that Start button
+ */
+function handleStart() {
+    if (inputUsername.value){
+        username = inputUsername.value;
+    } else {
+        username = "Guest";
+    }
+    let startContainer = document.querySelector(".start-container");
+    startContainer.classList.add("inactive");
 }
 
 //These are functions for the rule modal window
@@ -360,7 +385,7 @@ function shakeTiles(tiles) {
  */
 function checkAnswer(guess, tiles) {
     if (guess === targetWord) {
-        showAlert("You Got It!", 3000);
+        showAlert(`Congratulations ${username}!! You guessed correctly!!`, 3000);
         danceTiles(tiles);
         stopGame();
         return;
@@ -369,7 +394,8 @@ function checkAnswer(guess, tiles) {
     let remainingTiles = gameArea.querySelectorAll(":not([data-letter])");
 
     if (remainingTiles.length === 0) {
-        showAlert(`The correct FOOdle word is ${targetWord.toUpperCase()}`, null);
+        showAlert(`Awww ${username}...
+        \nThe correct FOOdle word is ${targetWord.toUpperCase()}`, null);
         stopGame();
     }
 }
