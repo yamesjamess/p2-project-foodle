@@ -375,7 +375,7 @@ li > img {
     align-items: center;
     justify-content: center;
 
-    background-image: url(/assets/images/start-window-image.webp);
+    background-image: url(../images/start-window-image.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
