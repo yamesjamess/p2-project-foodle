@@ -143,6 +143,7 @@ function resetTargetWords() {
 //These are functions for the rule modal window
 function openRules(rules) {
     if (rules == null) return;
+    rules.classList.add("active");
     overlay.classList.add("active");
 }
 
