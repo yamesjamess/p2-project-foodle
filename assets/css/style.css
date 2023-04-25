@@ -339,7 +339,7 @@ li > img {
     max-width: 35vw;
 }
 
-#overlay {
+#rule-overlay {
     position: fixed;
     opacity: 0;
     top: 0;
@@ -351,7 +351,7 @@ li > img {
     transition: 200ms ease-in-out;
 }
 
-#overlay.active {
+#rule-overlay.active {
     opacity: 1;
     pointer-events: all;
 }

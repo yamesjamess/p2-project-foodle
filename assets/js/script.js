@@ -24,7 +24,7 @@ let vegWordsAdded = false;
 //Event listener variables
 let openRulesButton = document.querySelectorAll("[data-rules-target]");
 let closeRulesButton = document.querySelectorAll("[data-close-button]");
-let overlay = document.getElementById("overlay");
+let ruleOverlay = document.getElementById("rule-overlay");
 
 //fetch method to get list of all available words from JSON file.
 fetch('assets/js/dictionary.json')
@@ -42,7 +42,7 @@ openRulesButton.forEach(function (button) {
     });
 });
 
-overlay.addEventListener("click", overlayCloseRules);
+ruleOverlay.addEventListener("click", overlayCloseRules);
 
 closeRulesButton.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -143,14 +143,13 @@ function resetTargetWords() {
 //These are functions for the rule modal window
 function openRules(rules) {
     if (rules == null) return;
-    rules.classList.add("active");
-    overlay.classList.add("active");
+    rule-overlay.classList.add("active");
 }
 
 function closeRules(rules) {
     if (rules == null) return;
     rules.classList.remove("active");
-    overlay.classList.remove("active");
+    rule-overlay.classList.remove("active");
 }
 
 function overlayCloseRules() {
