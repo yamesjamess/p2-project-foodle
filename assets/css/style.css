@@ -380,7 +380,7 @@ li > img {
     align-items: center;
     justify-content: center;
 
-    background: url(../images/start-window-image.webp);
+    background-image: url(../images/start-window-image.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
