@@ -61,7 +61,7 @@ closeRulesButton.forEach(function (button) {
 //Event listener for start button
 startButton.addEventListener("click", function(){
     handleStart();
-    setTimeout(addThemeEventListeners, 1000);
+    setTimeout(addThemeEventListeners, 750);
 });
 
 /**
