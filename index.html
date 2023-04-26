@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------------ Link to CSS file ------------>
     <link rel="stylesheet" href="assets/css/style.css">
+    <!------------ Font Awesome Script ------------>
     <script src="https://kit.fontawesome.com/2c7a82bc8a.js" crossorigin="anonymous"></script>
     <title>Foodle</title>
 </head>
@@ -14,6 +16,7 @@
     <header class="title-container">
         <h1>FOODle</h1>
         <button id="rule-button" data-rules-target="#rules">?</button>
+        <!------------ Rule Modal & Overlay ------------>
         <div class="rules" id="rules">
             <div class="rules-header">
                 <div class="header-title">How to play</div>
@@ -51,14 +54,16 @@
         </div>
         <div id="overlay"></div>
     </header>
+    <!------------ Alert Message ------------>
     <div class="alert-container" data-alert-container>
     </div>
+    <!------------ Theme Buttons ------------>
     <div class="theme-area">
         <button data-type="fruit" id="fruit-btn" class="theme-btn">Fruit Words</button>
         <button data-type="vegetable" id="veg-btn" class="theme-btn">Vegetable Words</button>
         <button onClick="window.location.href=window.location.href" data-type="reset" id="reset-btn">Reset</button>
     </div>
-
+    <!------------ Starting Page ------------>
     <div class="start-container">
         <div class="start-title">
             <h1>FOODle</h1>
@@ -69,7 +74,7 @@
                 <button id="start-button">Start</button>
         </div>
     </div>
-
+    <!------------ Game Tiles area ------------>
     <div data-game-area id="game-area">
         <div class="tile"></div>
         <div class="tile"></div>
@@ -102,6 +107,7 @@
         <div class="tile"></div>
         <div class="tile"></div>
     </div>
+    <!------------ On Screen Keyboard ------------>
     <div data-keyboard id="keyboard-area">
         <button class="key" data-key="Q">Q</button>
         <button class="key" data-key="W">W</button>
@@ -135,7 +141,7 @@
         <button data-delete class="key large">&#10094;&#10094;</button>
     </div>
 
-    <!------------ Font Awesome Script ------------>
+    <!------------ Link to JS file ------------>
     <script src="assets/js/script.js"></script>
 </body>
 
