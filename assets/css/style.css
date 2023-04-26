@@ -13,6 +13,7 @@ header {
 body {
     background-color: hsl(19, 83%, 52%);
     min-height: 100vh;
+    max-width: 3000px;
     margin: 0;
     padding: 1em;
     font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
@@ -382,7 +383,7 @@ li > img {
     align-items: center;
     justify-content: center;
 
-    background-image: url(../images/start-window-image.webp);
+    background: url(../images/start-window-image.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
