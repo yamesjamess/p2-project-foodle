@@ -392,7 +392,12 @@ li > img {
 input {
     text-align: center;
     font-size: inherit;
+    caret-color: black;
 }
+
+input:focus::placeholder {
+    color: transparent;
+  }
 
 .start-body > h3, .start-title > h1 {
     text-shadow: 1px 0px 5px #FFF;
