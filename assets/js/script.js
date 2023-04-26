@@ -59,7 +59,10 @@ closeRulesButton.forEach(function (button) {
 });
 
 //Event listener for start button
-startButton.addEventListener("click", handleStart);
+startButton.addEventListener("click", function(){
+    handleStart();
+    setTimeout(addThemeEventListeners, 1000);
+});
 
 /**
  * Logic for the game to select the theme of the target word.
@@ -69,9 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let vegButton = document.getElementById("veg-btn");
     let resetButton = document.getElementById("reset-btn");
 
-    fruitButton.addEventListener('click', addFruitWords);
-    vegButton.addEventListener('click', addVegWords);
-    resetButton.addEventListener('click', resetTargetWords);
+    fruitButton.addEventListener("click", addFruitWords);
+    vegButton.addEventListener("click", addVegWords);
+    resetButton.addEventListener("click", resetTargetWords);
 
     /** this function will randomly choose a vegetable word from the array and 
      * assign it to targetWord 
@@ -182,6 +185,21 @@ function overlayCloseRules() {
     let rules = document.querySelectorAll(".rules.active");
     rules.forEach(function (rules) {
         closeRules(rules);
+    });
+}
+
+// Add event listener that alert user to pick a theme
+function addThemeEventListeners() {
+    document.addEventListener("keypress", function(event){
+        if(!targetWord) {
+            showAlert("Please select a theme");
+        }
+    });
+
+    document.addEventListener("click", function(event){
+        if(!targetWord) {
+            showAlert("Please select a theme");
+        }
     });
 }
 
