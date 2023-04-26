@@ -6,10 +6,6 @@
     caret-color: transparent;
 }
 
-header {
-    background-color: hsla(144, 65%, 16%, 1);
-}
-
 body {
     background-color: hsl(19, 83%, 52%);
     min-height: 100vh;
@@ -29,6 +25,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: hsla(144, 65%, 16%, 1);
 }
 
 #rule-button {
