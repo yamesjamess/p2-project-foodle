@@ -294,7 +294,13 @@ header {
     background-color: hsl(19, 100%, 65% );
     width: 75vw;
     max-width: 80%;
+    height: 90vh;
+    max-height: 80%;
+
     transition: 200ms ease-in-out;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .rules.active {
@@ -326,6 +332,7 @@ header {
 
 .rules-body {
     padding: 20px 25px;
+    overflow: auto;
 }
 
 .rules-body h3{
