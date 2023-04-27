@@ -168,7 +168,7 @@ function handleStart() {
     startContainer.classList.add("inactive");
 }
 
-//These are functions for the rule modal window
+//These are functions for the rule modal window. Credits to Web Dev Simplified
 function openRules(rules) {
     if (rules == null) return;
     rules.classList.add("active");

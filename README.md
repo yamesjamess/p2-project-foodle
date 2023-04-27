@@ -2,8 +2,6 @@
 
 [View the live project here](https://yamesjamess.github.io/p2-project-foodle/)
 
-
-
 ![Mockup](documentation/support-images/amiresponsive.png)
 
 ## Table of contents
@@ -27,37 +25,85 @@
 
 ### Existing Features
 
-* **1 - Placeholder**
+* **1 - Start Screen**
+    ![Start Screen](documentation/support-images/f1-start-screen.png)
 
-* **2 - Placeholder**
+    * The start screen features a background image with the title of the game, an input box for user to input a username, and a start button
+    * The image was chosen becuase the theme of the game is food theme word guessing game, and the colour scheme of the website is chosen to mimic the colour of a carrot. 
+* **2 - How to Play Window**
+    ![How to Play Window](documentation/support-images/f2-how-to-play.gif)
     
-* **3 - Placeholder**
+    * The How to Play is a modal window that the user can make it display or hide it with a simple click
+    
+* **3 - Theme Selectors**
+    ![Theme Selector](documentation/support-images/f3-theme-selector.gif)
+
+    * The Theme Selectors button let user select which themed words they want play.
+    * The user is prompt with an alert message and also the button is highlighted to give a visual cue to which theme they have chosen.
    
-* **4 - Placeholder**
-    
-* **5 - Placeholder**
+* **4 - Game Area & Keyboard**
+    ![Game Area & Keyboard](documentation/support-images/f4-game-area.png)
 
-* **6 - Gallery**
+    * The game area is the main area where the user will input their guess after selecting a theme. 
+    * The colouring of each letter tiles act as a hint to the user if they got the letter correctly and in the correct position or not
+    * User can input their guess either via keyboard on their device or clicking on the on screen keyboard.
+    * The letters on the keys also change according to the colouring of the tiles.
+    
+* **5 - Alert Box**
+    ![Alert Box](documentation/support-images/f5-alert-box.png)
+    * The alert box helps the user understand what they need to do in order for the game to function properly.
+    * There are alerts for
+        * When the user haven't selected a theme.
+        * When the user didn't input enough letters.
+        * When the user input an invalid word.
+        * When the user lost the game.
+        * When the user won the game.
+
+* **6 - Tile Animation**
+
+    * There are two different animations to the tiles in the game
+
+    1. Flip Tiles Animation
+    ![Flip Tiles Animation](documentation/support-images/f6.1-flip-tiles.gif)
+
+    * The Flip Tile animation is run when the user entered a valid word as a guess. The game validates the word against the answer and give each title a class, which colours each tile accordingly.
+
+    2. Dance Tiles Animation
+    ![Dance Tiles Animation](documentation/support-images/f6.2-dance-tiles.gif)
+
+    * The Dance Title animation is only execute when the user submitted the correct word.
+    * This gives the user a visual cue that looks like the tiles are celebrating the user's victory!
 
 ### Future Features
 
-* **1 - Placeholder**
+* **1 - Sound effects**
+
+    * I would like to add some sound effects when the user submits their guess and the tile flips.
+
+    * I would like to add a scoreboard based on how many guesses it took for the user to guess the correct word.
+
+    * I would like to add more words to the targetWords variable, and possibily more themes
+
+    * I would like to add a logic where the game validates words with double letter to determine if the answer has double letters or not. The game in the current version will highlight the double letter as correct letter & correct location or correct letter & incorrect location even there are only one of that letter in the answer.
 
 ## Design
-
-### Imagery
+* Since this game in heavily inspired by the world reknowned game Wordle. I want to keep it as similar to the original game as possible for ease of recognition. However, to make this game more unique, I decided to approach a themed version of Wordle. Choosing the theme of Food helped me with my decision for both functionality and visually.
 
 ### Colour Scheme
+![Colour Scheme](documentation/support-images/)
 
-    ![Colour Scheme](documentation/support-images/)
+* The colour scheme that was chosen for this website is based on a carrot. Since the game is a food word guessing game, I thought it would be a great idea to make the colour scheme of the game to reflect that. I think orange and green is a very neutral colour and doesn't feel overly strong and harsh like red or purple.
+* The rest of the colours are chosen based on their contrast against the main colour scheme, also a lot of the colours chosen has a food related name.
 
 ### Typography
+
+* The font used in this game is Helvetica Neue. This is the font that is used in the official Wordle game. The font is clean, neutral, and modern.
 
 ### Wireframe
 
 * Wireframes were created via Balsamiq
 
-    * #### Index Page Wireframe
+    * #### 
 
 ## Technologies Used
 
@@ -71,7 +117,7 @@
 *   [Coolors:](https://coolors.co/) was used to help generate alternative colours than the colour provided by the client for accessibility.
 *   [Favicon.io:](https://favicon.io/) was used to generate a Favicon (a website icon that appears in the tab of the browser or when the website is saved to the bookmark bar) for the website.
 *   [Font Awesome:](https://fontawesome.com/) was used to add icons to convey the message of the sections and for aesthetic purposes of the UX
-*   [FreeConvert:](https://www.freeconvert.com/jpg-to-webp/) was used to convert .JPG files to .WEBP file.
+*   [FreeConvert:](https://www.freeconvert.com/) was used to convert image files to .WEBP file.
 *   [Git:](https://git-scm.com/) was used for version controlling purposes through git commands via the terminal on GitPod and is pushed to GitHub for cloud-based storage.
 *   [GitHub:](https://github.com/) is used to host the repository of the project and is also used for deployment of the website.
 
@@ -83,29 +129,19 @@
     
     *   result for index.html
 
-        ![HTML result index](documentation/validation-results/html-validation-result.png)
-
-    * Full validation results are available on GitHub here:
-
-        * <a href="https://github.com/yamesjamess/p1-sotofox-designer/blob/main/documentation/validation-results/html-validation-results-index.pdf" target="_blank">HTML Validation Results - Index </a>
+        ![HTML result index](documentation/validation-results/html-validator-result.png)
 
 * Jigsaw CSS Validator
 
     * result for style.css
-    ![CSS result](documentation/validation-results/css-validation-results.png)
-
-    * Full validation results are available on GitHub here:
-
-        * <a href="https://github.com/yamesjamess/p1-sotofox-designer/blob/main/documentation/validation-results/css-validation-results.pdf" target="_blank">CSS Validation Results - style.css</a>
+    ![CSS result](documentation/validation-results/css-validator-result.png)
 
 * JSHint JS Validator
 
     * result for script.js
-    ![CSS result](documentation/validation-results/js-validation-results.png)
+    ![CSS result](documentation/validation-results/js-validator-result.png)
 
-    * Full validation results are available on GitHub here:
-
-        * <a href="https://github.com/yamesjamess/p1-sotofox-designer/blob/main/documentation/validation-results/css-validation-results.pdf" target="_blank">JS Validation Results - script.js</a>
+    * The JS validator shows a lot of warnings because some functionality of JS does not work in older browsers. But the codes are valid and functioning as expected.
 
 
 * Lighthouse Accessibility Validator
@@ -121,12 +157,12 @@
 ### Browser Compatibility
 
 *   The website has been tested on these following broswes:
-    * Google Chrome Version 110.0.5481.178 (Official Build) (64-bit)
-    * Mozilla Firefox Version 110.0.1 (64-bit)
-    * Microsoft Edge Version 110.0.1587.57 (Official build) (64-bit)
+    * Google Chrome Version 112.0.5615.137 (Official Build) (arm64)
+    * Mozilla Firefox Version 112.0.2 (64-bit)
+    * Microsoft Edge Version 
     * Apple Safari on macOS Ventura Version 16.3 (18614.4.6.1.6)
-    * Apple Safari on iOS 16.0 (20A362)
-    * DuckDuckGo Mobile Version 7.72.2.0
+    * Apple Safari on iOS 16..4.1 (20A362)
+    * DuckDuckGo Mobile Version 
 
 ### Accessibility
 
@@ -159,7 +195,7 @@
     * Once finished, the link to the deployed website will appear on the page.
     * Any commits pushed from the main branch of the repository will be updated to the live website by GitHub automatically.
 
-    The live website can be found here [Sotofox Home Designer & Artist](https://yamesjamess.github.io/p2-project-foodle/)
+    The live website can be found here [FOODle](https://yamesjamess.github.io/p2-project-foodle/)
 
 ### How to copy this repository
 
@@ -181,17 +217,26 @@
 
 ### Content
 
-* 
+* Game inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html)
 * All other content was written by the developer.
 
 ### Code
 
-* 
+* The main game JavaScript Logic - [Web Dev Simplified](https://www.youtube.com/watch?v=Wak7iN4JZzU)
+
+* Tutorial on building a modal for the How To Play window - [Web Dev Simplified](https://www.youtube.com/watch?v=MBaw_6cPmAw)
+
+* [StackOverflow thread](https://stackoverflow.com/questions/9707021/how-do-i-auto-hide-placeholder-text-upon-focus-using-css-or-jquery) on hiding placeholder in the input on focus - [Rob Fletcher](https://stackoverflow.com/users/565049/rob-fletcher)
 
 ### Media
 
-* 
+* Starting Page Image - [Gabriel Gurrola](https://unsplash.com/photos/fcgPRZmTM5w) from Unsplash
+
+* Carrot Icon - [Sofia Moya](https://www.svgrepo.com/svg/489694/carrot) from SVG Repo
 
 ### Acknowledgements
 
-* Thank you for my mentor, Brian Macharia, for helping me with troubleshooting responsive designs of the overall page and the gallery. Also, for all the feedback and plannng process that you provided during our mentoring sessions.
+* Thank you for my mentor, Brian Macharia, for helping me with coming up with ideas for what functionality I should add to customise the application.
+* Special thanks to the wonderful Code Institute Tutors; Joshua, Joane, and Ed, for helping me debug my code and modify the logic of the game.
+* Special thanks to [Marram](https://stackoverflow.com/users/21666265/marram) from [StackOverflow](https://stackoverflow.com/questions/76105938/css-background-image-not-showing-up-in-my-deployed-site/76105952#76105952) with debugging the background image not showin up.
+* Special thanks to fellow Code Institue student John Dickson and Stephen Dawson for feedback on the Peer Code Review.
