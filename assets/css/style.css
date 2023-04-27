@@ -8,7 +8,7 @@
 
 body {
     background-color: hsl(19, 83%, 52%);
-    min-height: 90vh;
+    min-height: 100vh;
     max-width: 3000px;
     margin: 0;
     padding: 1em;
@@ -133,7 +133,6 @@ header {
 #game-area {
     display: grid;
     justify-content: center;
-    /* align-content: center; */
     flex-grow: 1;
     grid-template-columns: repeat(5, 5.5em);
     grid-template-rows: repeat(6, 5.5em);
@@ -356,6 +355,8 @@ li > img {
     left: 0;
     right: 0;
     bottom: 0;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
     transition: 200ms ease-in-out;
