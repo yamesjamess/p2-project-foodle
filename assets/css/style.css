@@ -410,7 +410,12 @@ input:focus::placeholder {
 
 #start-button {
     font-size: inherit;
-    padding: 0.5% 5%;
-    border-radius: 5px;
-    margin-top: 1em;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #fdb44d;
+    border: none;
+    margin: 5px auto;
+    color: black;
+    display: block;
+    
 }

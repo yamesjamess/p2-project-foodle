@@ -12,7 +12,7 @@ let dictionary;
  * This array will contain the words that will be used as answer the of game.
  * The words will be coming from runGame function, when user select theme of the game.
  */
-let targetWords = []
+let targetWords = [];
 
 // this variable will contain the word that the user need to guess to win the game.
 let targetWord;
@@ -30,7 +30,7 @@ let startButton = document.getElementById("start-button");
 let username;
 
 //fetch method to get list of all available words from JSON file.
-fetch('assets/js/dictionary.json')
+fetch("assets/js/dictionary.json")
     .then(response => response.json())
     .then(data => {
         dictionary = data;
@@ -258,7 +258,7 @@ function handleKeyPress(event) {
  * Get the information how many active tiles are there per guess.
  */
 function getActiveTiles() {
-    return gameArea.querySelectorAll('[data-state="active"]');
+    return gameArea.querySelectorAll("[data-state='active']");
 }
 
 /**
