@@ -137,7 +137,7 @@
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-
+    * Note: This is a JavaScript project, however on GitHub, the percentage of HTML is higher than JavaScript due to the SVG image that has been added to the HTML file.
 ### Frameworks, Libraries & Other Tools Used
 *   [Balsamiq:](https://balsamiq.com/) was also used to create wireframes during the initial design process.
 *   [Coolors:](https://coolors.co/) was used to help generate alternative colours than the colour provided by the client for accessibility.
