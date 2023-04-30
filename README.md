@@ -16,19 +16,24 @@
 ## User Experience (UX)
 
 * #### A. First Time Visitor
-    
+    1. As a First Time Visitor, I want to understand what this website is about and how to interact with it.
+    2.  As a First Time Visitor, I want to learn how to play the game.
+    3.  As a First Time Visitor, I want to know how to win the game.
+     As a First Time Visitor, I want to know what I have to do if I lose the game.
 
 * #### B. Returning Visitor
-   
+    1. As a Returning Visitor, I want to easily navigate the website.
+    2. As a Returning Visitor, I want to be able to play the game over and over again.
+    3. As a Returning Visitor, I want to know my scores.
 
 ## Features
 
 ### Existing Features
 
-* **1 - Start Screen**
-    ![Start Screen](documentation/support-images/f1-start-screen.png)
+* **1 - Landing Screen**
+    ![Landing Screen](documentation/support-images/f1-landing-screen.png)
 
-    * The start screen features a background image with the title of the game, an input box for user to input a username, and a start button
+    * The landing screen features a background image with the title of the game, an input box for user to input a username, and a start button
     * The image was chosen becuase the theme of the game is food theme word guessing game, and the colour scheme of the website is chosen to mimic the colour of a carrot. 
 * **2 - How to Play Window**
     ![How to Play Window](documentation/support-images/f2-how-to-play.gif)
@@ -80,10 +85,13 @@
 
     * I would like to add some sound effects when the user submits their guess and the tile flips.
 
+* **2 - Score board**
     * I would like to add a scoreboard based on how many guesses it took for the user to guess the correct word.
 
+* **3 - Expanded targetWords list**
     * I would like to add more words to the targetWords variable, and possibily more themes
 
+* **4 - Double letters allowed**
     * I would like to add a logic where the game validates words with double letter to determine if the answer has double letters or not. The game in the current version will highlight the double letter as correct letter & correct location or correct letter & incorrect location even there are only one of that letter in the answer.
 
 ## Design
@@ -134,7 +142,7 @@
 *   [Balsamiq:](https://balsamiq.com/) was also used to create wireframes during the initial design process.
 *   [Coolors:](https://coolors.co/) was used to help generate alternative colours than the colour provided by the client for accessibility.
 *   [Favicon.io:](https://favicon.io/) was used to generate a Favicon (a website icon that appears in the tab of the browser or when the website is saved to the bookmark bar) for the website.
-*   [Font Awesome:](https://fontawesome.com/) was used to add icons to convey the message of the sections and for aesthetic purposes of the UX
+*   [Font Awesome:](https://fontawesome.com/) was used to add icons to convey the message of the sections and for aesthetic purposes of the UX.
 *   [FreeConvert:](https://www.freeconvert.com/) was used to convert image files to .WEBP file.
 *   [Git:](https://git-scm.com/) was used for version controlling purposes through git commands via the terminal on GitPod and is pushed to GitHub for cloud-based storage.
 *   [GitHub:](https://github.com/) is used to host the repository of the project and is also used for deployment of the website.
@@ -195,7 +203,7 @@
 
 * The table below has listed all the test cases and details of how the test was performed, and the result of the test.
 
-    ![Test cases and results](documentation/support-images/test-case.png)
+    ![Test cases and results](documentation/support-images/testing-case.png)
 
 ### Known Bugs
 
