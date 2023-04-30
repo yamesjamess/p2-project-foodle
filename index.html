@@ -58,7 +58,7 @@
         <div class="rules" id="rules">
             <div class="rules-header">
                 <div class="header-title">How to play</div>
-                <button data-close-button class="close-button">&#10006;</button>
+                <button data-close-button class="close-button">?</button>
             </div>
             <div class="rules-body">
                 <h3>Guess the FOODle in 6 tries.</h3>
@@ -162,8 +162,9 @@
             <h1>FOODle</h1>
         </div>
         <div class="start-body">
-            <h3>Enter a username:</h3>
-            <input id="username" type="text" placeholder="Username" required>
+            <h2>Enter a username:</h2>
+            <label for="username" hidden>Username:</label>
+            <input id="username" type="text" placeholder="Username" name="username" required>
             <button id="start-button">Start</button>
         </div>
     </div>

@@ -188,7 +188,7 @@
     * Microsoft Edge Version 
     * Apple Safari on macOS Ventura Version 16.3 (18614.4.6.1.6)
     * Apple Safari on iOS 16..4.1 (20A362)
-    * DuckDuckGo Mobile Version 
+    * DuckDuckGo Mobile Version 7.72.11.0
 
 ### Accessibility
 

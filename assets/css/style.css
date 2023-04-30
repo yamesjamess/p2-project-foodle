@@ -28,13 +28,17 @@ header {
     background-color: hsla(144, 65%, 16%, 1);
 }
 
+header h1{
+    color: #FDC577;
+}
+
 #rule-button {
     position: absolute;
     right: 5%;
     font-size: inherit;
     aspect-ratio: 1 / 1;
     background-color: hsla(144, 65%, 16%, 1);
-    color: #1D1D1F;
+    color: #FDC577;
     border: none;
     font-size: 1.5em;
 }
