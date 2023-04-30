@@ -90,10 +90,22 @@
 * Since this game in heavily inspired by the world reknowned game Wordle. I want to keep it as similar to the original game as possible for ease of recognition. However, to make this game more unique, I decided to approach a themed version of Wordle. Choosing the theme of Food helped me with my decision for both functionality and visually.
 
 ### Colour Scheme
-![Colour Scheme](documentation/support-images/)
 
 * The colour scheme that was chosen for this website is based on a carrot. Since the game is a food word guessing game, I thought it would be a great idea to make the colour scheme of the game to reflect that. I think orange and green is a very neutral colour and doesn't feel overly strong and harsh like red or purple.
-* The rest of the colours are chosen based on their contrast against the main colour scheme, also a lot of the colours chosen has a food related name.
+* The rest of the colours are chosen based on their contrast against the main colour scheme, also some of the colours chosen has a food related name.
+
+![Colour Scheme](documentation/support-images/foodle-main.png)
+* Main Colour Shceme
+    * #0E4323 - British Racing Green
+    * #EA5F1F - Persimmon
+    * #E6C328 - Saffron
+    * #DEB887 - Tan
+
+![Keys Colour Scheme](documentation/support-images/foodle-keys.png)
+* Keys Colour Shceme
+    * #3A9246 - Forest Green
+    * #D57244 - Brunt Sienna
+    * #E6C328 - Saffron
 
 ### Typography
 
@@ -167,9 +179,6 @@
 ### Accessibility
 
 * [WebAIM - Contrast Checker:](https://webaim.org/resources/contrastchecker/) was utilised during the design process to determine if the colour scheme would work in terms of readability and accessibility. 
-    * Since the colour scheme was selected by the client in order to represent their business, there was some issues with readability and accessibility.
-    * The colour #F4D455 was too light, so a darker shade #FFB30F was chosen instead.
-    * To make the text more readable, the colour #FFFFFF and #4D4D4D was used when appropriate. 
 
 * [Am I Responsive:](https://ui.dev/amiresponsive) was utilised to check if the website is responsive across different viewports.
 
@@ -183,6 +192,11 @@
     ![Test cases and results](documentation/support-images/test-case.png)
 
 ### Known Bugs
+
+* User cannot use the Return key to submit their username on the starting page
+    * Fixed by adding an event listener to the input to listen when the user press the Return key.
+* The game tiles are overlapping the keyboard, and on some devices the game tiles are too small and leaving large empty spaces on the site.
+    * Fixed by adjusting the relative sizing value of the game tiles and also adjusting flex box.
 
 ## Deployment
 
@@ -211,8 +225,6 @@
 * You will be redirected to a new page, from there enter the name you desire the name the forked repository and click "Create Fork"
 * You will now have a Fork copy of the repository on your own repository.
 
-
-
 ## Credits
 
 ### Content
@@ -227,6 +239,8 @@
 * Tutorial on building a modal for the How To Play window - [Web Dev Simplified](https://www.youtube.com/watch?v=MBaw_6cPmAw)
 
 * [StackOverflow thread](https://stackoverflow.com/questions/9707021/how-do-i-auto-hide-placeholder-text-upon-focus-using-css-or-jquery) on hiding placeholder in the input on focus - [Rob Fletcher](https://stackoverflow.com/users/565049/rob-fletcher)
+
+* Fetch Method was learned from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and [Web Dev Simplified](https://www.youtube.com/watch?v=cuEtnrL9-H0)
 
 ### Media
 
