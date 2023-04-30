@@ -65,6 +65,7 @@ startButton.addEventListener("click", function(){
     setTimeout(addThemeEventListeners, 750);
 });
 
+//Event listener for input element
 inputUsername.addEventListener("keydown", function(event){
     if (event.key === "Enter") {
         handleStart();
