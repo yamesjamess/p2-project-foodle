@@ -115,7 +115,13 @@
 
 * Wireframes were created via Balsamiq
 
-    * #### 
+    * #### Desktop Wireframe
+
+    ![Desktop](documentation/wireframes/wireframe-desktop.png)
+
+    * #### Mobile Wireframe
+
+    ![Mobile](documentation/wireframes/wireframe-mobile.png)
 
 ## Technologies Used
 
