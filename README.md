@@ -148,11 +148,11 @@
 
     *   result for index.html
 
-        ![Lighthouse result index](documentation/validation-results/lighthouse-result-1.png)
+        ![Lighthouse result index](documentation/validation-results/lighthouse-result-desktop.png)
 
     *   result for index.html (mobile)
 
-        ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile-1.png)  
+        ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile.png)  
 
 ### Browser Compatibility
 

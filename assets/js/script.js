@@ -25,9 +25,10 @@ let vegWordsAdded = false;
 let openRulesButton = document.querySelectorAll("[data-rules-target]");
 let closeRulesButton = document.querySelectorAll("[data-close-button]");
 let overlay = document.getElementById("overlay");
-let inputUsername = document.querySelector("input");
+let inputUsername = document.getElementById("username");
 let startButton = document.getElementById("start-button");
 let username;
+
 
 //fetch method to get list of all available words from JSON file.
 fetch("assets/js/dictionary.json")
@@ -62,6 +63,13 @@ closeRulesButton.forEach(function (button) {
 startButton.addEventListener("click", function(){
     handleStart();
     setTimeout(addThemeEventListeners, 750);
+});
+
+inputUsername.addEventListener("keydown", function(event){
+    if (event.key === "Enter") {
+        handleStart();
+        setTimeout(addThemeEventListeners, 750);
+    }
 });
 
 /**
