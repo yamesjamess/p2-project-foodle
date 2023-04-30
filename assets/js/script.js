@@ -160,7 +160,7 @@ function resetTargetWords() {
     stopGame();
     targetWords = [];
     targetWord = [];
-    username = ""
+    username = "";
     fruitWordsAdded = false;
     vegWordsAdded = false;
 }

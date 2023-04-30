@@ -167,9 +167,6 @@
     * result for script.js
     ![CSS result](documentation/validation-results/js-validator-result.png)
 
-    * The JS validator shows a lot of warnings because some functionality of JS does not work in older browsers. But the codes are valid and functioning as expected.
-
-
 * Lighthouse Accessibility Validator
 
     *   result for index.html
@@ -178,7 +175,19 @@
 
     *   result for index.html (mobile)
 
-        ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile.png)  
+        ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile.png) 
+        
+* WAVE Accessibility Evalutaion Tool
+
+    * result for the index.html
+        * Summary
+        ![WAVE result summary](documentation/validation-results/wave-result-summary.png)
+        * Alerts
+        ![WAVE result alerts](documentation/validation-results/wave-result-alert.png)
+        * Features
+        ![WAVE result features](documentation/validation-results/wave-result-features.png)
+        * Structure
+        ![WAVE result structure](documentation/validation-results/wave-result-structure.png)
 
 ### Browser Compatibility
 
@@ -193,6 +202,8 @@
 ### Accessibility
 
 * [WebAIM - Contrast Checker:](https://webaim.org/resources/contrastchecker/) was utilised during the design process to determine if the colour scheme would work in terms of readability and accessibility. 
+
+* [WebAIM - WAVE:](https://wave.webaim.org/) was also utilised to check the website as whole for accesibility issues.
 
 * [Am I Responsive:](https://ui.dev/amiresponsive) was utilised to check if the website is responsive across different viewports.
 
