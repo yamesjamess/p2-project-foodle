@@ -185,18 +185,20 @@
         ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile.png) 
         
 * WAVE Accessibility Evaluation Tool
-
-    * result for the index.html
-        * Summary
+        
+    * Summary
         <br>
         ![WAVE result summary](documentation/validation-results/wave-result-summary.png)
-        * Alerts
+        
+    * Alerts
         <br>
         ![WAVE result alerts](documentation/validation-results/wave-result-alert.png)
-        * Features
+        
+    * Features
         <br>
         ![WAVE result features](documentation/validation-results/wave-result-features.png)
-        * Structure
+
+    * Structure
         <br>
         ![WAVE result structure](documentation/validation-results/wave-result-structure.png)
 
