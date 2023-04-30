@@ -185,7 +185,7 @@
 *   The website has been tested on these following broswes:
     * Google Chrome Version 112.0.5615.137 (Official Build) (arm64)
     * Mozilla Firefox Version 112.0.2 (64-bit)
-    * Microsoft Edge Version 
+    * Microsoft Edge Version 112.0.1722.64 (Official build) (64-bit)
     * Apple Safari on macOS Ventura Version 16.3 (18614.4.6.1.6)
     * Apple Safari on iOS 16..4.1 (20A362)
     * DuckDuckGo Mobile Version 
