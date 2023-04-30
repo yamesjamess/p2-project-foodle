@@ -33,50 +33,50 @@
 * **1 - Landing Screen**
     ![Landing Screen](documentation/support-images/f1-landing-screen.png)
 
-    * The landing screen features a background image with the title of the game, an input box for user to input a username, and a start button
-    * The image was chosen becuase the theme of the game is food theme word guessing game, and the colour scheme of the website is chosen to mimic the colour of a carrot. 
+    * The landing screen features a background image with the title of the game, an input box for the user to input a username, and a start button
+    * The image was chosen because the theme of the game is a food theme word guessing game and the colour scheme of the website is chosen to mimic the colour of a carrot. 
 * **2 - How to Play Window**
     ![How to Play Window](documentation/support-images/f2-how-to-play.gif)
     
-    * The How to Play is a modal window that the user can make it display or hide it with a simple click
+    * The How to Play is a modal window that the user can make it display or hide with a simple click
     
 * **3 - Theme Selectors**
     ![Theme Selector](documentation/support-images/f3-theme-selector.gif)
 
-    * The Theme Selectors button let user select which themed words they want play.
-    * The user is prompt with an alert message and also the button is highlighted to give a visual cue to which theme they have chosen.
+    * The Theme Selectors button lets the user select which themed words they want to play.
+    * The user is prompted with an alert message and also the button is highlighted to give a visual cue as to which theme they have chosen.
    
 * **4 - Game Area & Keyboard**
     ![Game Area & Keyboard](documentation/support-images/f4-game-area.png)
 
     * The game area is the main area where the user will input their guess after selecting a theme. 
-    * The colouring of each letter tiles act as a hint to the user if they got the letter correctly and in the correct position or not
-    * User can input their guess either via keyboard on their device or clicking on the on screen keyboard.
+    * The colouring of each letter tiles acts as a hint to the user if they got the letter correctly and in the correct position or not
+    * User can input their guess either via the keyboard on their device or by clicking on the on-screen keyboard.
     * The letters on the keys also change according to the colouring of the tiles.
     
 * **5 - Alert Box**
     ![Alert Box](documentation/support-images/f5-alert-box.png)
-    * The alert box helps the user understand what they need to do in order for the game to function properly.
+    * The alert box helps the user understand what they need to do for the game to function properly.
     * There are alerts for
-        * When the user haven't selected a theme.
+        * When the user hasn't selected a theme.
         * When the user didn't input enough letters.
-        * When the user input an invalid word.
+        * When the user inputs an invalid word.
         * When the user lost the game.
         * When the user won the game.
 
 * **6 - Tile Animation**
 
-    * There are two different animations to the tiles in the game
+    * There are two different animations for the tiles in the game
 
     1. Flip Tiles Animation
     ![Flip Tiles Animation](documentation/support-images/f6.1-flip-tiles.gif)
 
-    * The Flip Tile animation is run when the user entered a valid word as a guess. The game validates the word against the answer and give each title a class, which colours each tile accordingly.
+    * The Flip Tile animation is run when the user entered a valid word as a guess. The game validates the word against the answer and gives each title a class, which colours each tile accordingly.
 
     2. Dance Tiles Animation
     ![Dance Tiles Animation](documentation/support-images/f6.2-dance-tiles.gif)
 
-    * The Dance Title animation is only execute when the user submitted the correct word.
+    * The Dance Title animation is only executed when the user submitted the correct word.
     * This gives the user a visual cue that looks like the tiles are celebrating the user's victory!
 
 ### Future Features
@@ -85,32 +85,32 @@
 
     * I would like to add some sound effects when the user submits their guess and the tile flips.
 
-* **2 - Score board**
+* **2 - Scoreboard**
     * I would like to add a scoreboard based on how many guesses it took for the user to guess the correct word.
 
 * **3 - Expanded targetWords list**
-    * I would like to add more words to the targetWords variable, and possibily more themes
+    * I would like to add more words to the targetWords variable, and possibly more themes
 
 * **4 - Double letters allowed**
-    * I would like to add a logic where the game validates words with double letter to determine if the answer has double letters or not. The game in the current version will highlight the double letter as correct letter & correct location or correct letter & incorrect location even there are only one of that letter in the answer.
+    * I would like to add a logic where the game validates words with double letters to determine if the answer has double letters or not. The game in the current version will highlight the double letter as correct letter & correct location or correct letter & incorrect location even if there is only one of that letter in the answer.
 
 ## Design
-* Since this game in heavily inspired by the world reknowned game Wordle. I want to keep it as similar to the original game as possible for ease of recognition. However, to make this game more unique, I decided to approach a themed version of Wordle. Choosing the theme of Food helped me with my decision for both functionality and visually.
+* Since this game is heavily inspired by the world renowned game Wordle. I want to keep it as similar to the original game as possible for ease of recognition. However, to make this game more unique, I decided to approach a themed version of Wordle. Choosing the theme of Food helped me with my decision for both functionality and visuals.
 
 ### Colour Scheme
 
-* The colour scheme that was chosen for this website is based on a carrot. Since the game is a food word guessing game, I thought it would be a great idea to make the colour scheme of the game to reflect that. I think orange and green is a very neutral colour and doesn't feel overly strong and harsh like red or purple.
-* The rest of the colours are chosen based on their contrast against the main colour scheme, also some of the colours chosen has a food related name.
+* The colour scheme that was chosen for this website is based on a carrot. Since the game is a food word guessing game, I thought it would be a great idea to make the colour scheme of the game reflect that. I think orange and green is a very neutral colour and doesn't feel overly strong and harsh like red or purple.
+* The rest of the colours are chosen based on their contrast against the main colour scheme, also some of the colours chosen have a food-related name.
 
 ![Colour Scheme](documentation/support-images/foodle-main.png)
-* Main Colour Shceme
+* Main Colour Scheme
     * #0E4323 - British Racing Green
     * #EA5F1F - Persimmon
     * #E6C328 - Saffron
     * #DEB887 - Tan
 
 ![Keys Colour Scheme](documentation/support-images/foodle-keys.png)
-* Keys Colour Shceme
+* Keys Colour Scheme
     * #3A9246 - Forest Green
     * #D57244 - Brunt Sienna
     * #E6C328 - Saffron
@@ -140,12 +140,12 @@
     * Note: This is a JavaScript project, however on GitHub, the percentage of HTML is higher than JavaScript due to the SVG image that has been added to the HTML file.
 ### Frameworks, Libraries & Other Tools Used
 *   [Balsamiq:](https://balsamiq.com/) was also used to create wireframes during the initial design process.
-*   [Coolors:](https://coolors.co/) was used to help generate alternative colours than the colour provided by the client for accessibility.
+*   [Coolors:](https://coolors.co/) was used to help generate colour for the website
 *   [Favicon.io:](https://favicon.io/) was used to generate a Favicon (a website icon that appears in the tab of the browser or when the website is saved to the bookmark bar) for the website.
 *   [Font Awesome:](https://fontawesome.com/) was used to add icons to convey the message of the sections and for aesthetic purposes of the UX.
 *   [FreeConvert:](https://www.freeconvert.com/) was used to convert image files to .WEBP file.
 *   [Git:](https://git-scm.com/) was used for version controlling purposes through git commands via the terminal on GitPod and is pushed to GitHub for cloud-based storage.
-*   [GitHub:](https://github.com/) is used to host the repository of the project and is also used for deployment of the website.
+*   [GitHub:](https://github.com/) is used to host the repository of the project and is also used for the deployment of the website.
 
 ## Testing
 
@@ -177,7 +177,7 @@
 
         ![Lighthouse result index](documentation/validation-results/lighthouse-result-mobile.png) 
         
-* WAVE Accessibility Evalutaion Tool
+* WAVE Accessibility Evaluation Tool
 
     * result for the index.html
         * Summary
@@ -191,10 +191,10 @@
 
 ### Browser Compatibility
 
-*   The website has been tested on these following broswes:
+*   The website has been tested on the following browsers:
     * Google Chrome Version 112.0.5615.137 (Official Build) (arm64)
     * Mozilla Firefox Version 112.0.2 (64-bit)
-    * Microsoft Edge Version 112.0.1722.64 (Official build) (64-bit)
+    * Microsoft Edge Version 112.0.1722.64 (Official Build) (64-bit)
     * Apple Safari on macOS Ventura Version 16.3 (18614.4.6.1.6)
     * Apple Safari on iOS 16..4.1 (20A362)
     * DuckDuckGo Mobile Version 7.72.11.0
@@ -203,7 +203,7 @@
 
 * [WebAIM - Contrast Checker:](https://webaim.org/resources/contrastchecker/) was utilised during the design process to determine if the colour scheme would work in terms of readability and accessibility. 
 
-* [WebAIM - WAVE:](https://wave.webaim.org/) was also utilised to check the website as whole for accesibility issues.
+* [WebAIM - WAVE:](https://wave.webaim.org/) was also utilised to check the website as a whole for acessibility issues.
 
 * [Am I Responsive:](https://ui.dev/amiresponsive) was utilised to check if the website is responsive across different viewports.
 
@@ -220,8 +220,8 @@
 
 * User cannot use the Return key to submit their username on the starting page
     * Fixed by adding an event listener to the input to listen when the user press the Return key.
-* The game tiles are overlapping the keyboard, and on some devices the game tiles are too small and leaving large empty spaces on the site.
-    * Fixed by adjusting the relative sizing value of the game tiles and also adjusting flex box.
+* The game tiles are overlapping the keyboard, and on some devices, the game tiles are too small and leave large empty spaces on the site.
+    * Fixed by adjusting the relative sizing value of the game tiles and also adjusting the flex box.
 
 ## Deployment
 
@@ -246,9 +246,9 @@
 ### How to fork this repository
 
 * Visit the main repository at https://github.com/yamesjamess/p2-project-foodle.
-* On the top right hand corner click on the "Fork" button.
+* On the top right-hand corner click on the "Fork" button.
 * You will be redirected to a new page, from there enter the name you desire the name the forked repository and click "Create Fork"
-* You will now have a Fork copy of the repository on your own repository.
+* You will now have a Fork copy of the repository on your repository.
 
 ## Credits
 
@@ -278,4 +278,4 @@
 * Thank you for my mentor, Brian Macharia, for helping me with coming up with ideas for what functionality I should add to customise the application.
 * Special thanks to the wonderful Code Institute Tutors; Joshua, Joane, and Ed, for helping me debug my code and modify the logic of the game.
 * Special thanks to [Marram](https://stackoverflow.com/users/21666265/marram) from [StackOverflow](https://stackoverflow.com/questions/76105938/css-background-image-not-showing-up-in-my-deployed-site/76105952#76105952) with debugging the background image not showin up.
-* Special thanks to fellow Code Institue student John Dickson and Stephen Dawson for feedback on the Peer Code Review.
+* Special thanks to fellow Code Institute students John Dickson and Stephen Dawson for feedback on the Peer Code Review.
