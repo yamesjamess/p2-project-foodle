@@ -31,22 +31,26 @@
 ### Existing Features
 
 * **1 - Landing Screen**
+    <br>
     ![Landing Screen](documentation/support-images/f1-landing-screen.png)
 
     * The landing screen features a background image with the title of the game, an input box for the user to input a username, and a start button
     * The image was chosen because the theme of the game is a food theme word guessing game and the colour scheme of the website is chosen to mimic the colour of a carrot. 
 * **2 - How to Play Window**
+    <br>
     ![How to Play Window](documentation/support-images/f2-how-to-play.gif)
     
     * The How to Play is a modal window that the user can make it display or hide with a simple click
     
 * **3 - Theme Selectors**
+    <br>
     ![Theme Selector](documentation/support-images/f3-theme-selector.gif)
 
     * The Theme Selectors button lets the user select which themed words they want to play.
     * The user is prompted with an alert message and also the button is highlighted to give a visual cue as to which theme they have chosen.
    
 * **4 - Game Area & Keyboard**
+    <br>
     ![Game Area & Keyboard](documentation/support-images/f4-game-area.png)
 
     * The game area is the main area where the user will input their guess after selecting a theme. 
@@ -55,6 +59,7 @@
     * The letters on the keys also change according to the colouring of the tiles.
     
 * **5 - Alert Box**
+    <br>
     ![Alert Box](documentation/support-images/f5-alert-box.png)
     * The alert box helps the user understand what they need to do for the game to function properly.
     * There are alerts for
@@ -68,12 +73,14 @@
 
     * There are two different animations for the tiles in the game
 
-    1. Flip Tiles Animation
+    **1. Flip Tiles Animation**
+    <br>
     ![Flip Tiles Animation](documentation/support-images/f6.1-flip-tiles.gif)
 
     * The Flip Tile animation is run when the user entered a valid word as a guess. The game validates the word against the answer and gives each title a class, which colours each tile accordingly.
 
-    2. Dance Tiles Animation
+    **2. Dance Tiles Animation**
+    <br>
     ![Dance Tiles Animation](documentation/support-images/f6.2-dance-tiles.gif)
 
     * The Dance Title animation is only executed when the user submitted the correct word.
@@ -181,12 +188,16 @@
 
     * result for the index.html
         * Summary
+        <br>
         ![WAVE result summary](documentation/validation-results/wave-result-summary.png)
         * Alerts
+        <br>
         ![WAVE result alerts](documentation/validation-results/wave-result-alert.png)
         * Features
+        <br>
         ![WAVE result features](documentation/validation-results/wave-result-features.png)
         * Structure
+        <br>
         ![WAVE result structure](documentation/validation-results/wave-result-structure.png)
 
 ### Browser Compatibility
